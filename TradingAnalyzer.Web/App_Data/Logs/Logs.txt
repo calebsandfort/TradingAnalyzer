@@ -1,0 +1,95 @@
+DEBUG 2017-06-23 14:34:13,207 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-06-23 14:34:13,232 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2017-06-23 14:34:13,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,244 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,244 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,244 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,244 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,245 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:13,249 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2017-06-23 14:34:13,890 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:34:17,956 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-06-23 14:34:17,989 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-06-23 14:34:17,991 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-06-23 14:34:17,994 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-06-23 14:34:18,764 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+WARN  2017-06-23 14:34:19,026 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-06-23 14:34:19,040 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+ERROR 2017-06-23 14:34:19,634 [9    ] gAnalyzer.Web.Controllers.HomeController - Sections must only appear once per config file.  See the help topic <location> for exceptions. (C:\Users\csandfort\Documents\Visual Studio 2017\Projects\TradingAnalyzer\TradingAnalyzer.Web\views\web.config line 23)
+System.Configuration.ConfigurationErrorsException: Sections must only appear once per config file.  See the help topic <location> for exceptions. (C:\Users\csandfort\Documents\Visual Studio 2017\Projects\TradingAnalyzer\TradingAnalyzer.Web\views\web.config line 23)
+   at System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   at System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(ConfigurationSchemaErrors schemaErrors)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Web.Configuration.RuntimeConfig.GetSectionObject(String sectionName)
+   at System.Web.Configuration.RuntimeConfig.GetSection(String sectionName, Type type, ResultsIndex index)
+   at System.Web.Configuration.RuntimeConfig.get_Compilation()
+   at System.Web.Compilation.BuildManager.IsBatchEnabledForDirectory(VirtualPath virtualDir)
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-06-23 14:34:40,429 [12   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-06-23 14:34:40,431 [12   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-06-23 14:34:40,433 [12   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-06-23 14:34:40,433 [12   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-06-23 14:41:48,392 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-06-23 14:41:48,434 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2017-06-23 14:41:48,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,448 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,448 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,449 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,449 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,449 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,450 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,450 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,450 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,451 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,451 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:48,455 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2017-06-23 14:41:48,786 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-23 14:41:49,133 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-06-23 14:41:49,144 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-06-23 14:41:49,146 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-06-23 14:41:49,149 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-06-23 14:41:49,455 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+WARN  2017-06-23 14:41:49,588 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-06-23 14:41:49,606 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2017-06-24 10:42:44,353 [164  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-06-24 10:42:44,356 [164  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-06-24 10:42:44,357 [164  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-06-24 10:42:44,357 [164  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-06-26 13:41:55,032 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-06-26 13:41:55,062 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2017-06-26 13:41:55,070 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,077 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,077 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,078 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,078 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,078 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,083 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2017-06-26 13:41:55,414 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-06-26 13:41:55,645 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-06-26 13:41:55,653 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-06-26 13:41:55,657 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-06-26 13:41:55,659 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-06-26 13:41:55,848 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+WARN  2017-06-26 13:41:56,017 [7    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-06-26 13:41:56,021 [7    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
