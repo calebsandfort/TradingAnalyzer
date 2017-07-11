@@ -108,6 +108,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\IMarketLogEntryAppService.cs" />
+    <Compile Include="Services\MarketLogEntryAppService.cs" />
     <Compile Include="TradingAnalyzerApplicationModule.cs" />
     <Compile Include="TradingAnalyzerAppServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

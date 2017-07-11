@@ -2,6 +2,7 @@
 <localizationDictionary culture="en">
   <texts>
     <text name="HomePage" value="Home page" />
+    <text name="MarketLog" value="Market Log" />
     <text name="About" value="About" />
     <text name="WelcomeMessage" value="Welcome to TradingAnalyzer!" />
     <text name="Home_ThisIsATemplate" value="This project template is a starting point to develop web applicatins using..." />

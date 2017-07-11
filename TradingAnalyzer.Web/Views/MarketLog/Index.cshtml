@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.ActiveMenu = "Market Log"; //The menu item will be active for this page.
+}
+
+<script type="text/x-kendo-tmpl" id="logEntryTemplate">
+    <li class="left clearfix">
+        <div class="chat-body clearfix">
+            <div class="header">
+                <strong class="primary-font" style="color: white;">Jack Sparrow</strong> <small class="pull-right text-muted">
+                    <span class="glyphicon glyphicon-time"></span>#:kendo.toString(TimeStamp, "MMM d yyyy h mm tt")#
+                </small>
+            </div>
+            <p>
+                #:Text#
+            </p>
+        </div>
+    </li>
+</script>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <a class="btn btn-primary" style="margin-bottom: 10px;" href="javascript:void(0);" role="button" onclick="TradingAnalyzer.Log.showAddLogEntryModal()">Add</a>
+        <div id="logPanel" class="panel panel-default">
+            <div class="panel-body">
+                @(Html.Kendo().ListView<MarketLogEntryDto>()
+                    .Name("logListView")
+                    .TagName("ul")
+                    .HtmlAttributes(new { @class = "chat" })
+                    .ClientTemplateId("logEntryTemplate")
+                    .DataSource(dataSource =>
+                    {
+                        dataSource.Read(read => read.Action("MarketLog_Read", "MarketLog"));
+                    })
+                )
+
+                <ul class="chat">
+                    <li class="left clearfix">
+                        <div class="chat-body clearfix">
+                            <div class="header">
+                                <strong class="primary-font" style="color: white;">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                    <span class="glyphicon glyphicon-time"></span>12 mins ago
+                                </small>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                dolor, quis ullamcorper ligula sodales.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

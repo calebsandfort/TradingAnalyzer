@@ -15,7 +15,7 @@
 
     <link rel="shortcut icon" href="~/favicon.ico">
 
-    <title>TradingAnalyzer</title>
+    <title>Trading Analyzer</title>
 
     @Styles.Render("~/Bundles/vendor/css")
     @Styles.Render("~/Bundles/css")
@@ -54,12 +54,13 @@
         @RenderBody()
     </div>
 
+    <div id="addLogEntryModalWrapper"></div>
+
     @Scripts.Render("~/Bundles/vendor/js/bottom")
     @Scripts.Render("~/Bundles/js")
 
     <script>
         abp.localization.defaultSourceName = '@LocalizationSourceName';
-        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name.ToLower()'); //Localizing momentjs
     </script>
 
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->

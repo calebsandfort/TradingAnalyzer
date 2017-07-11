@@ -1,11 +1,16 @@
 ﻿using System.Data.Common;
 using Abp.EntityFramework;
+using TradingAnalyzer.Entities;
+using System.Data.Entity;
 
 namespace TradingAnalyzer.EntityFramework
 {
     public class TradingAnalyzerDbContext : AbpDbContext
     {
-        //TODO: Define an IDbSet for each Entity...
+        public virtual IDbSet<Trade> Trades { get; set; }
+        public virtual IDbSet<TradingAccount> TradingAccounts { get; set; }
+        public virtual IDbSet<TradingDay> TradingDays { get; set; }
+        public virtual IDbSet<MarketLogEntry> MarketLogEntries { get; set; }
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }

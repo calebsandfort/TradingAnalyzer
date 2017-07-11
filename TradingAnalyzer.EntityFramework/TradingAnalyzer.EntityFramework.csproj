@@ -121,6 +121,18 @@
   <ItemGroup>
     <Compile Include="EntityFramework\TradingAnalyzerDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\TradingAnalyzerRepositoryBase.cs" />
+    <Compile Include="Migrations\201706262136183_intial.cs" />
+    <Compile Include="Migrations\201706262136183_intial.Designer.cs">
+      <DependentUpon>201706262136183_intial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706262252557_AddFields.cs" />
+    <Compile Include="Migrations\201706262252557_AddFields.Designer.cs">
+      <DependentUpon>201706262252557_AddFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707111829351_AddLogStuff.cs" />
+    <Compile Include="Migrations\201707111829351_AddLogStuff.Designer.cs">
+      <DependentUpon>201707111829351_AddLogStuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TradingAnalyzerDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +146,17 @@
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>TradingAnalyzer.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706262136183_intial.resx">
+      <DependentUpon>201706262136183_intial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706262252557_AddFields.resx">
+      <DependentUpon>201706262252557_AddFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707111829351_AddLogStuff.resx">
+      <DependentUpon>201707111829351_AddLogStuff.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

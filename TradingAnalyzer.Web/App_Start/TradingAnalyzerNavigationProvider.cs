@@ -16,17 +16,10 @@ namespace TradingAnalyzer.Web
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        "Home",
-                        new LocalizableString("HomePage", TradingAnalyzerConsts.LocalizationSourceName),
-                        url: "",
-                        icon: "fa fa-home"
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        "About",
-                        new LocalizableString("About", TradingAnalyzerConsts.LocalizationSourceName),
-                        url: "About",
-                        icon: "fa fa-info"
+                        "MarketLog",
+                        new LocalizableString("MarketLog", TradingAnalyzerConsts.LocalizationSourceName),
+                        url: "MarketLog",
+                        icon: "fa fa-pencil-square-o"
                         )
                 );
         }
