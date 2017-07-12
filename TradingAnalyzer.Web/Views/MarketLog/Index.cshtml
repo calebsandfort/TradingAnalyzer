@@ -25,7 +25,7 @@
                 @(Html.Kendo().ListView<MarketLogEntryDto>()
                     .Name("logListView")
                     .TagName("ul")
-                    .HtmlAttributes(new { @class = "chat" })
+                    .HtmlAttributes(new { @class = "chat", style = "border: none; box-shadow: none;" })
                     .ClientTemplateId("logEntryTemplate")
                     .DataSource(dataSource =>
                     {
@@ -33,7 +33,7 @@
                     })
                 )
 
-                <ul class="chat">
+                @*<ul class="chat">
                     <li class="left clearfix">
                         <div class="chat-body clearfix">
                             <div class="header">
@@ -47,7 +47,20 @@
                             </p>
                         </div>
                     </li>
-                </ul>
+                    <li class="left clearfix">
+                        <div class="chat-body clearfix">
+                            <div class="header">
+                                <strong class="primary-font" style="color: white;">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                    <span class="glyphicon glyphicon-time"></span>12 mins ago
+                                </small>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                dolor, quis ullamcorper ligula sodales.
+                            </p>
+                        </div>
+                    </li>
+                </ul>*@
             </div>
         </div>
     </div>

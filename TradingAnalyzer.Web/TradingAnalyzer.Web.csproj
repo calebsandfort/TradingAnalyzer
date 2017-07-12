@@ -373,6 +373,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarketLogController.cs" />
     <Compile Include="Controllers\ViewRendererController.cs" />
+    <Compile Include="Framework\GuerillaLogisticsApiJsonResult.cs" />
+    <Compile Include="Framework\LinqExtensions.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\TradingAnalyzerControllerBase.cs" />
