@@ -51,6 +51,8 @@ TradingAnalyzer.Util.initForm = function (id, submitFunc) {
 
             var input = _$form.serializeFormToObject();
 
+            abp.ui.setBusy('#' + id);
+
             submitFunc(input);
         });
 }
@@ -74,23 +76,59 @@ TradingAnalyzer.Util.showModalForm = function (id, clearForm) {
 
 TradingAnalyzer.Util.hideModalForm = function (id) {
     var _$modal = $('#' + id);
+    abp.ui.clearBusy('#' + id);
     _$modal.modal("hide");
 }
 
 TradingAnalyzer.Log.showAddLogEntryModal = function (target) {
     $.ajax({
         type: "GET",
-        url: abp.appPath + 'ViewRenderer/AddLogEntryModal',
+        url: abp.appPath + 'MarketLog/AddLogEntryModal',
         success: function (r) {
             $("#addLogEntryModalWrapper").html(r);
             TradingAnalyzer.Util.initForm("addLogEntryForm", TradingAnalyzer.Log.addLogEntry);
             TradingAnalyzer.Util.showModalForm("addLogEntryModal", false);
+
+            document.getElementById("pasteTarget").
+                addEventListener("paste", handlePaste);
         },
         contentType: "application/json"
     });
 }
 
 TradingAnalyzer.Log.addLogEntry = function (input) {
-    TradingAnalyzer.Util.hideModalForm("addLogEntryModal");
-    abp.services.app.marketLogEntry.add(input).done(function () { });
+    abp.services.app.marketLogEntry.add(input).done(function () {
+        TradingAnalyzer.Util.hideModalForm("addLogEntryModal");
+        TradingAnalyzer.Log.refresh();
+    });
+}
+
+TradingAnalyzer.Log.purge = function () {
+    abp.services.app.marketLogEntry.purge().done(function () {
+        TradingAnalyzer.Log.refresh();
+    });
+}
+
+TradingAnalyzer.Log.refresh = function (input) {
+    $("#logListView").data("kendoListView").dataSource.read();
+}
+
+function handlePaste(e) {
+    for (var i = 0; i < e.clipboardData.items.length; i++) {
+        var item = e.clipboardData.items[i];
+        if (item.type.indexOf("image") > -1) {
+            var f = item.getAsFile();
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                $("#pasteTarget").hide();
+                $("#imgScreenshot").attr("src", this.result).show();
+                $("#Screenshot").val(this.result);
+            };
+
+            reader.readAsDataURL(f);
+    } else {
+        console.log("Discardingimage paste data");
+    }
+}
 }

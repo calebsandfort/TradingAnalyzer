@@ -6,12 +6,16 @@
     <li class="left clearfix">
         <div class="chat-body clearfix">
             <div class="header">
-                <strong class="primary-font" style="color: white;">Jack Sparrow</strong> <small class="pull-right text-muted">
-                    <span class="glyphicon glyphicon-time"></span>#:kendo.toString(TimeStamp, "MMM d yyyy h mm tt")#
+                <strong class="primary-font">#:MarketLogEntryTypeDisplay#</strong> <small class="pull-right text-muted">
+                    <span class="glyphicon glyphicon-time"></span>#:kendo.toString(TimeStamp, "MMM d yyyy h:mm tt")#
                 </small>
             </div>
             <p>
                 #:Text#
+                #if(ShowScreenshot){#
+                    <br />
+                    <img class="expandImage img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src="#:Screenshot#" />
+                #}#
             </p>
         </div>
     </li>
@@ -20,6 +24,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <a class="btn btn-primary" style="margin-bottom: 10px;" href="javascript:void(0);" role="button" onclick="TradingAnalyzer.Log.showAddLogEntryModal()">Add</a>
+        <a class="btn btn-danger" style="margin-bottom: 10px;" href="javascript:void(0);" role="button" onclick="TradingAnalyzer.Log.purge()">Purge</a>
         <div id="logPanel" class="panel panel-default">
             <div class="panel-body">
                 @(Html.Kendo().ListView<MarketLogEntryDto>()
@@ -32,35 +37,6 @@
                         dataSource.Read(read => read.Action("MarketLog_Read", "MarketLog"));
                     })
                 )
-
-                @*<ul class="chat">
-                    <li class="left clearfix">
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font" style="color: white;">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                    <span class="glyphicon glyphicon-time"></span>12 mins ago
-                                </small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="left clearfix">
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font" style="color: white;">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                    <span class="glyphicon glyphicon-time"></span>12 mins ago
-                                </small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                </ul>*@
             </div>
         </div>
     </div>

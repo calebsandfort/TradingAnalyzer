@@ -109,11 +109,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
+    <Compile Include="Entities\Dtos\TradeDto.cs" />
+    <Compile Include="Entities\Enums\MarketLogEntryTypes.cs" />
+    <Compile Include="Entities\Enums\TradeExitReasons.cs" />
+    <Compile Include="Entities\Enums\TradeClassifications.cs" />
+    <Compile Include="Entities\Enums\TradingSetups.cs" />
+    <Compile Include="Entities\Enums\TradingDirectiveTypes.cs" />
     <Compile Include="Entities\Enums\TradeTypes.cs" />
+    <Compile Include="Entities\Market.cs" />
+    <Compile Include="Entities\TradingDirective.cs" />
     <Compile Include="Entities\MarketLogEntry.cs" />
     <Compile Include="Entities\Trade.cs" />
     <Compile Include="Entities\TradingDay.cs" />
     <Compile Include="Entities\TradingAccount.cs" />
+    <Compile Include="Framework\EnumExtensions.cs" />
     <Compile Include="Services\IMarketLogEntryDomainService.cs" />
     <Compile Include="Services\MarketLogEntryDomainService.cs" />
     <Compile Include="TradingAnalyzerConsts.cs" />

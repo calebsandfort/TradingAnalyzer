@@ -1,4 +1,5 @@
 using System.Data.Entity.Migrations;
+using TradingAnalyzer.Migrations.SeedData;
 
 namespace TradingAnalyzer.Migrations
 {
@@ -14,6 +15,8 @@ namespace TradingAnalyzer.Migrations
         {
             // This method will be called every time after migrating to the latest version.
             // You can add any seed data here...
+            new TradingDirectivesCreator(context).Create();
+            new MarketsCreator(context).Create();
         }
     }
 }

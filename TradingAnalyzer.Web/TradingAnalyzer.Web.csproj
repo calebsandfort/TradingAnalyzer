@@ -373,8 +373,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarketLogController.cs" />
     <Compile Include="Controllers\ViewRendererController.cs" />
+    <Compile Include="Framework\EnumModelBinder.cs" />
+    <Compile Include="Framework\Extensions.cs" />
     <Compile Include="Framework\GuerillaLogisticsApiJsonResult.cs" />
     <Compile Include="Framework\LinqExtensions.cs" />
+    <Compile Include="Framework\ListItem.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\TradingAnalyzerControllerBase.cs" />
@@ -412,6 +415,9 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Views\MarketLog\Index.cshtml" />
     <Content Include="Views\Shared\Modals\_AddLogEntryModal.cshtml" />
+    <Content Include="Views\Shared\Modals\_TodoModal.cshtml" />
+    <Content Include="Views\Shared\Modals\_TradingDirectivesModal.cshtml" />
+    <Content Include="Views\Shared\Modals\_TradingDirectivesList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

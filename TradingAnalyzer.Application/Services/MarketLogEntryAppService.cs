@@ -10,22 +10,32 @@ using System.Text;
 using System.Threading.Tasks;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
+using TradingAnalyzer.Shared.SqlExecuter;
 
 namespace TradingAnalyzer.Services
 {
     public class MarketLogEntryAppService : IMarketLogEntryAppService
     {
-        readonly MarketLogEntryDomainService _marketLogEntryDomainService;
+        readonly IMarketLogEntryDomainService _marketLogEntryDomainService;
+        public readonly IRepository<MarketLogEntry> _marketLogEntryRepository;
+        public readonly ISqlExecuter _sqlExecuter;
 
-        public MarketLogEntryAppService(MarketLogEntryDomainService marketLogEntryDomainService)
+        public MarketLogEntryAppService(IMarketLogEntryDomainService marketLogEntryDomainService, IRepository<MarketLogEntry> marketLogEntryRepository, ISqlExecuter sqlExecuter)
         {
             this._marketLogEntryDomainService = marketLogEntryDomainService;
+            this._marketLogEntryRepository = marketLogEntryRepository;
+            this._sqlExecuter = sqlExecuter;
         }
 
         [UnitOfWork(IsDisabled = true)]
         public void Add(MarketLogEntryDto dto)
         {
             this._marketLogEntryDomainService.Add(dto);
+        }
+
+        public void Purge()
+        {
+            this._sqlExecuter.Execute($"DELETE FROM [MarketLogEntries]");
         }
     }
 }

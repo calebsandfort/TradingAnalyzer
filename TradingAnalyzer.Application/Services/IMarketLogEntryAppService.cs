@@ -12,5 +12,6 @@ namespace TradingAnalyzer.Services
     public interface IMarketLogEntryAppService : IApplicationService
     {
         void Add(MarketLogEntryDto dto);
+        void Purge();
     }
 }

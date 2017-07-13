@@ -16,6 +16,9 @@ namespace TradingAnalyzer.Entities
         public DateTime TimeStamp { get; set; }
 
         public String Text { get; set; }
+        public String Screenshot { get; set; }
+
+        public MarketLogEntryTypes MarketLogEntryType { get; set; }
 
         [ForeignKey("TradingDayId")]
         public virtual TradingDay TradingDay { get; set; }

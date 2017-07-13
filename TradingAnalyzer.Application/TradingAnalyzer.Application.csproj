@@ -123,6 +123,10 @@
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>TradingAnalyzer.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TradingAnalyzer.Shared\TradingAnalyzer.Shared.csproj">
+      <Project>{38a127cb-fce6-4278-8a04-a1a683d5370d}</Project>
+      <Name>TradingAnalyzer.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

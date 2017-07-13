@@ -1,16 +1,41 @@
-﻿using System;
+﻿using Abp.Domain.Repositories;
+using Abp.ObjectMapping;
+using Kendo.Mvc.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TradingAnalyzer.Entities;
+using TradingAnalyzer.Web.Framework;
 
 namespace TradingAnalyzer.Web.Controllers
 {
     public class ViewRendererController : TradingAnalyzerControllerBase
     {
-        public ActionResult AddLogEntryModal()
+        readonly IRepository<TradingDirective> _tradingDirectiveRepository;
+        readonly IObjectMapper _objectMapper;
+
+        public ViewRendererController(IRepository<TradingDirective> tradingDirectiveRepository, IObjectMapper objectMapper)
         {
-            return PartialView("Modals/_AddLogEntryModal");
+            _tradingDirectiveRepository = tradingDirectiveRepository;
+            _objectMapper = objectMapper;
+        }
+
+        #region TradingDirectives_Read
+        public ActionResult TradingDirectives_Read([DataSourceRequest] DataSourceRequest request, TradingDirectiveTypes tradingDirectiveType)
+        {
+            DataSourceResult result = new DataSourceResult();
+
+            result.Data = _tradingDirectiveRepository.GetAll().Where(x => x.TradingDirectiveType == tradingDirectiveType).ToList();
+
+            return new GuerillaLogisticsApiJsonResult(result);
+        }
+        #endregion
+
+        public ActionResult GetMarketLogEntryTypes()
+        {
+            return new GuerillaLogisticsApiJsonResult(Extensions.EnumToListItems<MarketLogEntryTypes>());
         }
     }
 }

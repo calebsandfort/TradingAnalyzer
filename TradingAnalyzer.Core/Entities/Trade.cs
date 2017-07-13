@@ -12,27 +12,53 @@ namespace TradingAnalyzer.Entities
     [Table("Trades")]
     public class Trade : Entity<int>
     {
-        [DataType(DataType.DateTime)]
-        public DateTime Opened { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime Closed { get; set; }
-
         public int RefNumber { get; set; }
+
+        [ForeignKey("MarketId")]
+        public virtual Market Market { get; set; }
+        public virtual int MarketId { get; set; }
+
+        public int Timeframe { get; set; }
         public TradeTypes TradeType { get; set; }
-        public int Quantity { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime EntryDate { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double MiscFees { get; set; }
+        public Double EntryPrice { get; set; }
+        public TradingSetups EntrySetups { get; set; }
+        public String EntryRemarks { get; set; }
+        public String EntryScreenshot { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double CommissionsAndFees { get; set; }
+        public Double MFE { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double GrossPandL { get; set; }
+        public Double MFA { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? ExitDate { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double NetPandL { get; set; }
+        public Double ExitPrice { get; set; }
+        public TradeExitReasons ExitReason { get; set; }
+        public String ExitRemarks { get; set; }
+        public String ExitScreenshot { get; set; }
+
+        [DataType(DataType.Currency)]
+        public Double Commissions { get; set; }
+
+        public TradeClassifications Classification { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Display(Name = "Profit/Loss")]
+        public Double ProfitLoss { get; set; }
+
+        public int Size { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Display(Name = "Profit/Loss Per Contract")]
+        public Double ProfitLossPerContract { get; set; }
 
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }

@@ -5,15 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.AutoMapper;
 using System.ComponentModel.DataAnnotations;
+using TradingAnalyzer.Framework;
+using Abp.Application.Services.Dto;
 
 namespace TradingAnalyzer.Entities.Dtos
 {
     [AutoMap(typeof(MarketLogEntry))]
-    public class MarketLogEntryDto
+    public class MarketLogEntryDto : EntityDto
     {
         [DataType(DataType.DateTime)]
         public DateTime TimeStamp { get; set; }
         public String Text { get; set; }
+
+        public String Screenshot { get; set; }
+        public bool ShowScreenshot
+        {
+            get
+            {
+                return !String.IsNullOrEmpty(this.Screenshot);
+            }
+        }
+
+        public MarketLogEntryTypes MarketLogEntryType { get; set; }
+        public String MarketLogEntryTypeDisplay { get { return this.MarketLogEntryType.GetDisplay(); } }
         public virtual int TradingDayId { get; set; }
+
+        
     }
 }

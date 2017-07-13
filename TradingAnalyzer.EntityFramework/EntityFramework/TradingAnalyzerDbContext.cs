@@ -11,6 +11,8 @@ namespace TradingAnalyzer.EntityFramework
         public virtual IDbSet<TradingAccount> TradingAccounts { get; set; }
         public virtual IDbSet<TradingDay> TradingDays { get; set; }
         public virtual IDbSet<MarketLogEntry> MarketLogEntries { get; set; }
+        public virtual IDbSet<TradingDirective> TradingDirectives { get; set; }
+        public virtual IDbSet<Market> Markets { get; set; }
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }

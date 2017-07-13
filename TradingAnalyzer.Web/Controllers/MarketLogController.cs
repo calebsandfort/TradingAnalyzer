@@ -16,11 +16,13 @@ namespace TradingAnalyzer.Web.Controllers
     public class MarketLogController : TradingAnalyzerControllerBase
     {
         readonly IRepository<MarketLogEntry> _marketLogEntryRepository;
+        readonly IRepository<TradingDirective> _tradingDirectiveRepository;
         readonly IObjectMapper _objectMapper;
 
-        public MarketLogController(IRepository<MarketLogEntry> marketLogEntryRepository, IObjectMapper objectMapper)
+        public MarketLogController(IRepository<MarketLogEntry> marketLogEntryRepository, IRepository<TradingDirective> tradingDirectiveRepository, IObjectMapper objectMapper)
         {
             _marketLogEntryRepository = marketLogEntryRepository;
+            _tradingDirectiveRepository = tradingDirectiveRepository;
             _objectMapper = objectMapper;
         }
 
@@ -47,5 +49,16 @@ namespace TradingAnalyzer.Web.Controllers
             return new GuerillaLogisticsApiJsonResult(result);
         }
         #endregion
+
+        public ActionResult AddLogEntryModal()
+        {
+            DateTime lastEntryDate = DateTime.Now;
+            if(this._marketLogEntryRepository.Count() > 0)
+            {
+                lastEntryDate = this._marketLogEntryRepository.GetAll().OrderByDescending(x => x.TimeStamp).First().TimeStamp;
+            }
+
+            return PartialView("Modals/_AddLogEntryModal", lastEntryDate);
+        }
     }
 }
