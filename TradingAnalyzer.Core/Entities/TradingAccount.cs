@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TradingAnalyzer.Entities
 {
-    public class TradingAccount : Entity<int>
+    public class TradingAccount : EntityBase
     {
         public String Name { get; set; }
 
@@ -20,18 +20,17 @@ namespace TradingAnalyzer.Entities
         public Double CurrentCapital { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double MiscFees { get; set; }
+        public Double Commissions { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double CommissionsAndFees { get; set; }
+        public Double ProfitLoss { get; set; }
 
-        [DataType(DataType.Currency)]
-        public Double GrossPandL { get; set; }
-
-        [DataType(DataType.Currency)]
-        public Double NetPandL { get; set; }
+        public bool Active { get; set; }
 
         [ForeignKey("TradingAccountId")]
         public virtual ICollection<Trade> Trades { get; set; }
+
+        [ForeignKey("TradingAccountId")]
+        public virtual ICollection<MarketLogEntry> MarketLogEntries { get; set; }
     }
 }

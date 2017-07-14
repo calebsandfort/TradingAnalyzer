@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201707132324355_UpdateTradeEntity.Designer.cs">
       <DependentUpon>201707132324355_UpdateTradeEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707140406069_UpdateTradingAccountEntity.cs" />
+    <Compile Include="Migrations\201707140406069_UpdateTradingAccountEntity.Designer.cs">
+      <DependentUpon>201707140406069_UpdateTradingAccountEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707132324355_UpdateTradeEntity.resx">
       <DependentUpon>201707132324355_UpdateTradeEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707140406069_UpdateTradingAccountEntity.resx">
+      <DependentUpon>201707140406069_UpdateTradingAccountEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

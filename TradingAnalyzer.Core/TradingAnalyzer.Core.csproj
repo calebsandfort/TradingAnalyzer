@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\TradeDto.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Enums\MarketLogEntryTypes.cs" />
     <Compile Include="Entities\Enums\TradeExitReasons.cs" />
     <Compile Include="Entities\Enums\TradeClassifications.cs" />

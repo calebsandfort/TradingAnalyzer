@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TradingAnalyzer.Entities
 {
     [Table("MarketLogEntries")]
-    public class MarketLogEntry : Entity<int>
+    public class MarketLogEntry : EntityBase
     {
         [DataType(DataType.DateTime)]
         public DateTime TimeStamp { get; set; }
@@ -23,5 +23,9 @@ namespace TradingAnalyzer.Entities
         [ForeignKey("TradingDayId")]
         public virtual TradingDay TradingDay { get; set; }
         public virtual int TradingDayId { get; set; }
+
+        [ForeignKey("TradingAccountId")]
+        public virtual TradingAccount TradingAccount { get; set; }
+        public virtual int TradingAccountId { get; set; }
     }
 }

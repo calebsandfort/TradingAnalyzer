@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TradingAnalyzer.Entities
 {
     [Table("Trades")]
-    public class Trade : Entity<int>
+    public class Trade : EntityBase
     {
         public int RefNumber { get; set; }
 

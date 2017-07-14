@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TradingAnalyzer.Entities
 {
-    public class TradingDay : Entity<int>
+    public class TradingDay : EntityBase
     {
         [DataType(DataType.DateTime)]
         public DateTime Day { get; set; }
