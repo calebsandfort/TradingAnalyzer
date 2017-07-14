@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace TradingAnalyzer.Entities.Dtos
 {
-    public class TradeDto : EntityDto
+    public class TradeDto : EntityDtoBase
     {
         public int RefNumber { get; set; }
 

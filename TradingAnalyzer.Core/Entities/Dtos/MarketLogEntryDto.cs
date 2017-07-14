@@ -11,7 +11,7 @@ using Abp.Application.Services.Dto;
 namespace TradingAnalyzer.Entities.Dtos
 {
     [AutoMap(typeof(MarketLogEntry))]
-    public class MarketLogEntryDto : EntityDto
+    public class MarketLogEntryDto : EntityDtoBase
     {
         [DataType(DataType.DateTime)]
         public DateTime TimeStamp { get; set; }

@@ -1,7 +1,8 @@
 ﻿var TradingAnalyzer;
 if (!TradingAnalyzer) TradingAnalyzer = {
     Log: {},
-    Util: {}
+    Util: {},
+    TradingAccount: {}
 };
 
 (function ($) {
@@ -127,8 +128,21 @@ function handlePaste(e) {
             };
 
             reader.readAsDataURL(f);
-    } else {
-        console.log("Discardingimage paste data");
+        } else {
+            console.log("Discarding image paste data");
+        }
     }
 }
+
+TradingAnalyzer.TradingAccount.grid_edit = function (e) {
+    TradingAnalyzer.Util.hideEditField(e.container, "IsNew");
+    TradingAnalyzer.Util.hideEditField(e.container, "Id");
+}
+
+TradingAnalyzer.Util.hideEditField = function (container, name) {
+    var label = container.find("label[for=" + name + "]");
+    if (label.size() > 0) label.closest(".editor-label").hide();
+
+    var field = container.find("[name=" + name + "]");
+    if (field.size() > 0) field.closest(".editor-field").hide();
 }

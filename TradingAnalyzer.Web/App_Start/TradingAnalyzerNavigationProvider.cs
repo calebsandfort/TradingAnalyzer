@@ -21,6 +21,14 @@ namespace TradingAnalyzer.Web
                         url: "MarketLog",
                         icon: "fa fa-pencil-square-o"
                         )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "TradingAccounts",
+                        new LocalizableString("TradingAccounts", TradingAnalyzerConsts.LocalizationSourceName),
+                        url: "TradingAccounts",
+                        icon: "fa fa-book"
+                        )
                 );
         }
     }
