@@ -14,16 +14,16 @@ namespace TradingAnalyzer.Entities
         public String Name { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double InitialCapital { get; set; }
+        public Decimal InitialCapital { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double CurrentCapital { get; set; }
+        public Decimal CurrentCapital { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double Commissions { get; set; }
+        public Decimal Commissions { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double ProfitLoss { get; set; }
+        public Decimal ProfitLoss { get; set; }
 
         public bool Active { get; set; }
 

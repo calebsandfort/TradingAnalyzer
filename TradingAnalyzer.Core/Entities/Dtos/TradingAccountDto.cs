@@ -16,17 +16,17 @@ namespace TradingAnalyzer.Entities.Dtos
     {
         public String Name { get; set; }
 
-        //[DataType(DataType.Currency)]
-        public Double InitialCapital { get; set; }
+        [DataType(DataType.Currency)]
+        public Decimal InitialCapital { get; set; }
 
-        //[DataType(DataType.Currency)]
-        public Double CurrentCapital { get; set; }
+        [DataType(DataType.Currency)]
+        public Decimal CurrentCapital { get; set; }
 
-        //[DataType(DataType.Currency)]
-        public Double Commissions { get; set; }
+        [DataType(DataType.Currency)]
+        public Decimal Commissions { get; set; }
 
-        //[DataType(DataType.Currency)]
-        public Double ProfitLoss { get; set; }
+        [DataType(DataType.Currency)]
+        public Decimal ProfitLoss { get; set; }
 
         public bool Active { get; set; }
     }

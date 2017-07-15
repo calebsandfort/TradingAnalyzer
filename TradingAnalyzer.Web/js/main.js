@@ -81,6 +81,14 @@ TradingAnalyzer.Util.hideModalForm = function (id) {
     _$modal.modal("hide");
 }
 
+TradingAnalyzer.Util.hideEditField = function (container, name) {
+    var label = container.find("label[for=" + name + "]");
+    if (label.size() > 0) label.closest(".editor-label").hide();
+
+    var field = container.find("[name=" + name + "]");
+    if (field.size() > 0) field.closest(".editor-field").hide();
+}
+
 TradingAnalyzer.Log.showAddLogEntryModal = function (target) {
     $.ajax({
         type: "GET",
@@ -139,10 +147,12 @@ TradingAnalyzer.TradingAccount.grid_edit = function (e) {
     TradingAnalyzer.Util.hideEditField(e.container, "Id");
 }
 
-TradingAnalyzer.Util.hideEditField = function (container, name) {
-    var label = container.find("label[for=" + name + "]");
-    if (label.size() > 0) label.closest(".editor-label").hide();
-
-    var field = container.find("[name=" + name + "]");
-    if (field.size() > 0) field.closest(".editor-field").hide();
+TradingAnalyzer.TradingAccount.setActive = function (id, name) {
+    $("#activeTradingAccount").html(name);
+    abp.services.app.tradingAccount.setActive(id).done(function () {
+        var tradingAccountsGrid = $("#tradingAccountsGrid");
+        if (tradingAccountsGrid.size() > 0) {
+            tradingAccountsGrid.data("kendoGrid").dataSource.read();
+        }
+    });
 }

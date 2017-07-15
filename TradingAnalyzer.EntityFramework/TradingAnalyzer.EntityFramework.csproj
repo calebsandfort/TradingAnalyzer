@@ -122,41 +122,9 @@
     <Compile Include="EntityFramework\TradingAnalyzerDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\TradingAnalyzerRepositoryBase.cs" />
     <Compile Include="Framework\SqlExecuter.cs" />
-    <Compile Include="Migrations\201706262136183_intial.cs" />
-    <Compile Include="Migrations\201706262136183_intial.Designer.cs">
-      <DependentUpon>201706262136183_intial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706262252557_AddFields.cs" />
-    <Compile Include="Migrations\201706262252557_AddFields.Designer.cs">
-      <DependentUpon>201706262252557_AddFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707111829351_AddLogStuff.cs" />
-    <Compile Include="Migrations\201707111829351_AddLogStuff.Designer.cs">
-      <DependentUpon>201707111829351_AddLogStuff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707131612453_AddTradingDirectives.cs" />
-    <Compile Include="Migrations\201707131612453_AddTradingDirectives.Designer.cs">
-      <DependentUpon>201707131612453_AddTradingDirectives.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707131832142_AddMarketLogEntryType.cs" />
-    <Compile Include="Migrations\201707131832142_AddMarketLogEntryType.Designer.cs">
-      <DependentUpon>201707131832142_AddMarketLogEntryType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707132013274_AddMarketLogEntryScreenshot.cs" />
-    <Compile Include="Migrations\201707132013274_AddMarketLogEntryScreenshot.Designer.cs">
-      <DependentUpon>201707132013274_AddMarketLogEntryScreenshot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707132300072_AddMarkets.cs" />
-    <Compile Include="Migrations\201707132300072_AddMarkets.Designer.cs">
-      <DependentUpon>201707132300072_AddMarkets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707132324355_UpdateTradeEntity.cs" />
-    <Compile Include="Migrations\201707132324355_UpdateTradeEntity.Designer.cs">
-      <DependentUpon>201707132324355_UpdateTradeEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707140406069_UpdateTradingAccountEntity.cs" />
-    <Compile Include="Migrations\201707140406069_UpdateTradingAccountEntity.Designer.cs">
-      <DependentUpon>201707140406069_UpdateTradingAccountEntity.cs</DependentUpon>
+    <Compile Include="Migrations\201707150254147_Initial.cs" />
+    <Compile Include="Migrations\201707150254147_Initial.Designer.cs">
+      <DependentUpon>201707150254147_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
@@ -179,32 +147,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706262136183_intial.resx">
-      <DependentUpon>201706262136183_intial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706262252557_AddFields.resx">
-      <DependentUpon>201706262252557_AddFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707111829351_AddLogStuff.resx">
-      <DependentUpon>201707111829351_AddLogStuff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707131612453_AddTradingDirectives.resx">
-      <DependentUpon>201707131612453_AddTradingDirectives.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707131832142_AddMarketLogEntryType.resx">
-      <DependentUpon>201707131832142_AddMarketLogEntryType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707132013274_AddMarketLogEntryScreenshot.resx">
-      <DependentUpon>201707132013274_AddMarketLogEntryScreenshot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707132300072_AddMarkets.resx">
-      <DependentUpon>201707132300072_AddMarkets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707132324355_UpdateTradeEntity.resx">
-      <DependentUpon>201707132324355_UpdateTradeEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707140406069_UpdateTradingAccountEntity.resx">
-      <DependentUpon>201707140406069_UpdateTradingAccountEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707150254147_Initial.resx">
+      <DependentUpon>201707150254147_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

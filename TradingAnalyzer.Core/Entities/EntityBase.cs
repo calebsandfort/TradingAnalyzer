@@ -15,7 +15,7 @@ namespace TradingAnalyzer.Entities
         {
             get
             {
-                return this.Id > 0;
+                return this.Id == 0;
             }
         }
     }

@@ -18,11 +18,13 @@ namespace TradingAnalyzer.Services
     {
         public readonly IRepository<TradingAccount> _tradingAccountRepository;
         public readonly ISqlExecuter _sqlExecuter;
+        readonly IObjectMapper _objectMapper;
 
-        public TradingAccountAppService(IRepository<TradingAccount> tradingAccountRepository, ISqlExecuter sqlExecuter)
+        public TradingAccountAppService(IRepository<TradingAccount> tradingAccountRepository, ISqlExecuter sqlExecuter, IObjectMapper objectMapper)
         {
             this._tradingAccountRepository = tradingAccountRepository;
             this._sqlExecuter = sqlExecuter;
+            _objectMapper = objectMapper;
         }
 
         public void Save(TradingAccountDto dto)
@@ -37,6 +39,21 @@ namespace TradingAnalyzer.Services
                 TradingAccount tradingAccount = this._tradingAccountRepository.Get(dto.Id);
                 dto.MapTo(tradingAccount);
             }
+
+            if (dto.Active) this.SetActive(dto.Id);
+        }
+
+        public void SetActive(int id)
+        {
+            foreach(TradingAccount tradingAccount in this._tradingAccountRepository.GetAllList())
+            {
+                tradingAccount.Active = tradingAccount.Id == id;
+            }
+        }
+
+        public List<TradingAccountDto> GetAll()
+        {
+            return _objectMapper.Map<List<TradingAccountDto>>(_tradingAccountRepository.GetAll().OrderBy(x => x.Name).ToList());
         }
     }
 }

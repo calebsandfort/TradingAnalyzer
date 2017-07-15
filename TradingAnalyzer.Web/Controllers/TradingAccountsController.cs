@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.ObjectMapping;
+using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,12 @@ namespace TradingAnalyzer.Web.Controllers
             return View();
         }
 
+        [ChildActionOnly]
+        public PartialViewResult TradingAccountMenu()
+        {
+            return PartialView("_TradingAccountMenu", this._tradingAccountAppService.GetAll());
+        }
+
         #region TradingAccounts_Read
         public ActionResult TradingAccounts_Read([DataSourceRequest] DataSourceRequest request)
         {
@@ -44,57 +51,42 @@ namespace TradingAnalyzer.Web.Controllers
         }
         #endregion
 
-        #region CalcNflPlayers_Create
+        #region TradingAccount_Create
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult CalcNflPlayers_Create([DataSourceRequest] DataSourceRequest request, CalcNflPlayerJson model)
+        public ActionResult TradingAccount_Create([DataSourceRequest] DataSourceRequest request, TradingAccountDto model)
         {
-            using (DfsAssistantContext context = new DfsAssistantContext())
+            if (model != null && ModelState.IsValid)
             {
-                if (model != null && ModelState.IsValid)
-                {
-                    CalcNflPlayer entity = model.ToEntity();
-                    context.CalcNflPlayers.Add(entity);
-                    context.SaveChanges();
-                    model.Identifier = entity.Identifier;
-                }
-
-                return Json(new[] { model }.ToDataSourceResult(request, ModelState));
+                this._tradingAccountAppService.Save(model);
             }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
         #endregion
 
-        #region CalcNflPlayers_Update
+        #region TradingAccount_Update
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult CalcNflPlayers_Update([DataSourceRequest] DataSourceRequest request, CalcNflPlayerJson model)
+        public ActionResult TradingAccount_Update([DataSourceRequest] DataSourceRequest request, TradingAccountDto model)
         {
-            using (DfsAssistantContext context = new DfsAssistantContext())
+            if (model != null && ModelState.IsValid)
             {
-                if (model != null && ModelState.IsValid)
-                {
-                    CalcNflPlayer entity = context.CalcNflPlayers.Single(x => x.Identifier == model.Identifier);
-                    entity.Update(model);
-                    context.SaveChanges();
-                }
-
-                return Json(new[] { model }.ToDataSourceResult(request, ModelState));
+                this._tradingAccountAppService.Save(model);
             }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
         #endregion
 
-        #region CalcNflPlayers_Destroy
+        #region TradingAccount_Destroy
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult CalcNflPlayers_Destroy([DataSourceRequest] DataSourceRequest request, CalcNflPlayerJson model)
+        public ActionResult TradingAccount_Destroy([DataSourceRequest] DataSourceRequest request, TradingAccountDto model)
         {
-            using (DfsAssistantContext context = new DfsAssistantContext())
+            if (model != null)
             {
-                if (model != null)
-                {
-                    context.CalcNflPlayers.Remove(context.CalcNflPlayers.Single(x => x.Identifier == model.Identifier));
-                    context.SaveChanges();
-                }
-
-                return Json(new[] { model }.ToDataSourceResult(request, ModelState));
+                this._tradingAccountRepository.Delete(model.Id);
             }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
         #endregion
     }

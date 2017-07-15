@@ -12,5 +12,7 @@ namespace TradingAnalyzer.Services
     public interface ITradingAccountAppService : IApplicationService
     {
         void Save(TradingAccountDto dto);
+        void SetActive(int id);
+        List<TradingAccountDto> GetAll();
     }
 }

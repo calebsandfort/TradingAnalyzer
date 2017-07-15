@@ -421,6 +421,7 @@
     <Content Include="Views\Shared\Modals\_TradingDirectivesList.cshtml" />
     <Content Include="Views\TradingAccounts\Index.cshtml" />
     <Content Include="Views\TradingAccounts\_TradingAccountsGrid.cshtml" />
+    <Content Include="Views\TradingAccounts\_TradingAccountMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
