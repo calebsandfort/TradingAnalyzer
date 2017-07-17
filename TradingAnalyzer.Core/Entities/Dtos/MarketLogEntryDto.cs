@@ -30,6 +30,8 @@ namespace TradingAnalyzer.Entities.Dtos
         public String MarketLogEntryTypeDisplay { get { return this.MarketLogEntryType.GetDisplay(); } }
         public virtual int TradingDayId { get; set; }
 
-        
+        public virtual int TradingAccountId { get; set; }
+        public virtual int MarketId { get; set; }
+
     }
 }

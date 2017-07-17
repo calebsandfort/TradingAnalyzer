@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Dtos\EntityDtoBase.cs" />
+    <Compile Include="Entities\Dtos\MarketDto.cs" />
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\TradeDto.cs" />
     <Compile Include="Entities\Dtos\TradingAccountDto.cs" />

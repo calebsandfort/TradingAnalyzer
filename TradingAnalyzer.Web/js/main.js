@@ -106,6 +106,9 @@ TradingAnalyzer.Log.showAddLogEntryModal = function (target) {
 }
 
 TradingAnalyzer.Log.addLogEntry = function (input) {
+    input.TradingAccountId = $("#activeTradingAccount").data("id");
+    if (input.Screenshot == "{ id = Screenshot, class = includeHidden }") input.Screenshot = '';
+
     abp.services.app.marketLogEntry.add(input).done(function () {
         TradingAnalyzer.Util.hideModalForm("addLogEntryModal");
         TradingAnalyzer.Log.refresh();

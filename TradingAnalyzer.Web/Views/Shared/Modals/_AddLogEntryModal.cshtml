@@ -32,6 +32,27 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-3 control-label" for="MarketId">Market</label>
+                        <div class="col-sm-9">
+                            @(Html.Kendo().ComboBox()
+                              .Name("MarketId")
+                              .DataTextField("Symbol")
+                              .DataValueField("Id")
+                              .SelectedIndex(0)
+                              .Filter("contains")
+                              .DataSource(source =>
+                              {
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetMarkets", "Market");
+                                  })
+                                  .ServerFiltering(false);
+                              })
+                              .HtmlAttributes(new { style = "width:100%;", id = "MarketId", required = "", @class = "includeHidden" })
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-3 control-label" for="Trials">Text</label>
                         <div class="col-sm-9">
                             @(Html.TextArea("Text", new { style = "width: 100%; resize: none;", id = "Text", required = "", @class = "includeHidden", rows = 4 })

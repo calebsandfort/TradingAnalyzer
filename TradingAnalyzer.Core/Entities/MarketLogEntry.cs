@@ -27,5 +27,9 @@ namespace TradingAnalyzer.Entities
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }
         public virtual int TradingAccountId { get; set; }
+
+        [ForeignKey("MarketId")]
+        public virtual Market Market { get; set; }
+        public virtual int MarketId { get; set; }
     }
 }

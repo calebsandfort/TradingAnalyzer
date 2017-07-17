@@ -126,6 +126,10 @@
     <Compile Include="Migrations\201707150254147_Initial.Designer.cs">
       <DependentUpon>201707150254147_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707171607390_AddMarketToMarketLogEntry.cs" />
+    <Compile Include="Migrations\201707171607390_AddMarketToMarketLogEntry.Designer.cs">
+      <DependentUpon>201707171607390_AddMarketToMarketLogEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -149,6 +153,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707150254147_Initial.resx">
       <DependentUpon>201707150254147_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707171607390_AddMarketToMarketLogEntry.resx">
+      <DependentUpon>201707171607390_AddMarketToMarketLogEntry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
