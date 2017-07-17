@@ -10,7 +10,6 @@ using Abp.Application.Services.Dto;
 
 namespace TradingAnalyzer.Entities.Dtos
 {
-    [AutoMap(typeof(MarketLogEntry))]
     public class MarketLogEntryDto : EntityDtoBase
     {
         [DataType(DataType.DateTime)]
@@ -31,6 +30,8 @@ namespace TradingAnalyzer.Entities.Dtos
         public virtual int TradingDayId { get; set; }
 
         public virtual int TradingAccountId { get; set; }
+
+        public String Market { get; set; }
         public virtual int MarketId { get; set; }
 
     }

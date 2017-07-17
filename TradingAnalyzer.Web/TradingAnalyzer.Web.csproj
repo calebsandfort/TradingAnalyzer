@@ -380,6 +380,7 @@
     <Compile Include="Framework\GuerillaLogisticsApiJsonResult.cs" />
     <Compile Include="Framework\LinqExtensions.cs" />
     <Compile Include="Framework\ListItem.cs" />
+    <Compile Include="Models\AddLogEntryModel.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\TradingAnalyzerControllerBase.cs" />

@@ -151,11 +151,16 @@ TradingAnalyzer.TradingAccount.grid_edit = function (e) {
 }
 
 TradingAnalyzer.TradingAccount.setActive = function (id, name) {
-    $("#activeTradingAccount").html(name);
+    $("#activeTradingAccount").html(name).data("id", id);
     abp.services.app.tradingAccount.setActive(id).done(function () {
         var tradingAccountsGrid = $("#tradingAccountsGrid");
         if (tradingAccountsGrid.size() > 0) {
             tradingAccountsGrid.data("kendoGrid").dataSource.read();
+        }
+
+        var logListView = $("#logListView");
+        if (logListView.size() > 0) {
+            logListView.data("kendoListView").dataSource.read();
         }
     });
 }

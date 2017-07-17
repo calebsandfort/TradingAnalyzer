@@ -18,6 +18,11 @@ namespace TradingAnalyzer
                       .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name));
 
                 config.CreateMap<TradeDto, Trade>();
+
+                config.CreateMap<MarketLogEntry, MarketLogEntryDto>()
+                      .ForMember(u => u.Market, options => options.MapFrom(input => input.Market.Symbol));
+
+                config.CreateMap<MarketLogEntryDto, MarketLogEntry>();
             });
         }
 

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Web.Framework;
+using TradingAnalyzer.Web.Models;
 
 namespace TradingAnalyzer.Web.Controllers
 {
@@ -44,7 +45,7 @@ namespace TradingAnalyzer.Web.Controllers
             //result.Data = _objectMapper.Map<List<MarketLogEntryDto>>(_movieRepository.GetAllIncluding(x => x.StatLines.Select(y => y.Participant)).Where(request.Filters).Where(todayFunc).OrderBy(request.Sorts[0]).ToList());
             //result.Total = _marketLogEntryRepository.GetAll().Where(request.Filters).Where(todayFunc).Count();
 
-            result.Data = _objectMapper.Map<List<MarketLogEntryDto>>(_marketLogEntryRepository.GetAll().OrderByDescending(x => x.TimeStamp).ToList());
+            result.Data = _objectMapper.Map<List<MarketLogEntryDto>>(_marketLogEntryRepository.GetAllIncluding(x => x.Market).Where(x => x.TradingAccount.Active).OrderByDescending(x => x.TimeStamp).ToList());
 
             return new GuerillaLogisticsApiJsonResult(result);
         }
@@ -52,13 +53,18 @@ namespace TradingAnalyzer.Web.Controllers
 
         public ActionResult AddLogEntryModal()
         {
-            DateTime lastEntryDate = DateTime.Now;
+            AddLogEntryModel model = new AddLogEntryModel();
+
+            model.Date = DateTime.Now;
             if(this._marketLogEntryRepository.Count() > 0)
             {
-                lastEntryDate = this._marketLogEntryRepository.GetAll().OrderByDescending(x => x.TimeStamp).First().TimeStamp;
+                MarketLogEntry lastEntry = this._marketLogEntryRepository.GetAll().OrderByDescending(x => x.TimeStamp).First();
+
+                model.Date = lastEntry.TimeStamp;
+                model.MarketId = lastEntry.MarketId;
             }
 
-            return PartialView("Modals/_AddLogEntryModal", lastEntryDate);
+            return PartialView("Modals/_AddLogEntryModal", model);
         }
     }
 }
