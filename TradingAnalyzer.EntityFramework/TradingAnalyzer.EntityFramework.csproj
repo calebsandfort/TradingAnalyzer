@@ -130,6 +130,22 @@
     <Compile Include="Migrations\201707171607390_AddMarketToMarketLogEntry.Designer.cs">
       <DependentUpon>201707171607390_AddMarketToMarketLogEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707172117507_AddStopLossAndProfitTakerFields.cs" />
+    <Compile Include="Migrations\201707172117507_AddStopLossAndProfitTakerFields.Designer.cs">
+      <DependentUpon>201707172117507_AddStopLossAndProfitTakerFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707172153478_AddTradingDayToTrade.cs" />
+    <Compile Include="Migrations\201707172153478_AddTradingDayToTrade.Designer.cs">
+      <DependentUpon>201707172153478_AddTradingDayToTrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707181808195_AddInitialMarginToMarket.cs" />
+    <Compile Include="Migrations\201707181808195_AddInitialMarginToMarket.Designer.cs">
+      <DependentUpon>201707181808195_AddInitialMarginToMarket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707182113265_AddMttToMarket.cs" />
+    <Compile Include="Migrations\201707182113265_AddMttToMarket.Designer.cs">
+      <DependentUpon>201707182113265_AddMttToMarket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -156,6 +172,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707171607390_AddMarketToMarketLogEntry.resx">
       <DependentUpon>201707171607390_AddMarketToMarketLogEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707172117507_AddStopLossAndProfitTakerFields.resx">
+      <DependentUpon>201707172117507_AddStopLossAndProfitTakerFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707172153478_AddTradingDayToTrade.resx">
+      <DependentUpon>201707172153478_AddTradingDayToTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707181808195_AddInitialMarginToMarket.resx">
+      <DependentUpon>201707181808195_AddInitialMarginToMarket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707182113265_AddMttToMarket.resx">
+      <DependentUpon>201707182113265_AddMttToMarket.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

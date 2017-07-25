@@ -45,7 +45,7 @@
                               {
                                   source.Read(read =>
                                   {
-                                      read.Action("GetMarkets", "Market");
+                                      read.Action("GetMarkets", "Markets");
                                   })
                                   .ServerFiltering(false);
                               })
@@ -75,7 +75,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="Trials">Screenshot</label>
                         <div class="col-sm-9">
-                            <div style="width: 100%; height: 150px; border-color: #007fff; border-width: 2px; border-style: dashed;" id="pasteTarget">
+                            <div style="width: 100%; height: 150px; border-color: #007fff; border-width: 2px; border-style: dashed;" id="pasteTargetScreenshot">
                                 Click and paste here.
                             </div>
                             <img id="imgScreenshot" class="img-responsive" style="display: none;" />

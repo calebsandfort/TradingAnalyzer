@@ -39,6 +39,24 @@ namespace TradingAnalyzer.Web.Controllers
             return PartialView("_TradingAccountMenu", this._tradingAccountAppService.GetAll());
         }
 
+        #region MarketLog_Read
+        public ActionResult GetActiveAsListItems()
+        {
+            DataSourceResult result = new DataSourceResult();
+            TradingAccountDto activeAccount = _tradingAccountAppService.GetActive();
+
+            List<ListItem> listItems = new List<ListItem>();
+            listItems.Add(new ListItem() { Display = "Name", Value = activeAccount.Name });
+            listItems.Add(new ListItem() { Display = "Net Liq", Value = activeAccount.CurrentCapital.ToString("C") });
+            listItems.Add(new ListItem() { Display = "P/L", Value = activeAccount.ProfitLoss.ToString("C") });
+            listItems.Add(new ListItem() { Display = "Commissions", Value = activeAccount.Commissions.ToString("C") });
+
+            result.Data = listItems;
+
+            return new GuerillaLogisticsApiJsonResult(result);
+        }
+        #endregion
+
         #region TradingAccounts_Read
         public ActionResult TradingAccounts_Read([DataSourceRequest] DataSourceRequest request)
         {

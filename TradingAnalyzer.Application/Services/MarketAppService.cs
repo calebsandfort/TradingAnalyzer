@@ -27,9 +27,28 @@ namespace TradingAnalyzer.Services
             _objectMapper = objectMapper;
         }
 
+        public MarketDto Get(int id)
+        {
+            return _marketRepository.Get(id).MapTo<MarketDto>();
+        }
+
         public List<MarketDto> GetAll()
         {
             return _objectMapper.Map<List<MarketDto>>(_marketRepository.GetAll().OrderBy(x => x.Symbol).ToList());
+        }
+
+        public void Save(MarketDto dto)
+        {
+            if (dto.IsNew)
+            {
+                Market market = dto.MapTo<Market>();
+                this._marketRepository.Insert(market);
+            }
+            else
+            {
+                Market market = this._marketRepository.Get(dto.Id);
+                dto.MapTo(market);
+            }
         }
     }
 }

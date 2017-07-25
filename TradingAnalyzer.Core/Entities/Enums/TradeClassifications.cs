@@ -10,11 +10,11 @@ namespace TradingAnalyzer.Entities
     public enum TradeClassifications
     {
         None,
-        [Display("Consistent")]
+        [EnumDisplay("Consistent")]
         Consistent,
-        [Display("Discretionary")]
+        [EnumDisplay("Discretionary")]
         Discretionary,
-        [Display("Rogue")]
+        [EnumDisplay("Rogue")]
         Rogue
     }
 }

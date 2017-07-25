@@ -16,6 +16,14 @@ namespace TradingAnalyzer.Web
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
+                        "Dashboard",
+                        new LocalizableString("Dashboard", TradingAnalyzerConsts.LocalizationSourceName),
+                        url: "Dashboard",
+                        icon: "fa fa-dashboard"
+                        )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
                         "MarketLog",
                         new LocalizableString("MarketLog", TradingAnalyzerConsts.LocalizationSourceName),
                         url: "MarketLog",
@@ -28,6 +36,14 @@ namespace TradingAnalyzer.Web
                         new LocalizableString("TradingAccounts", TradingAnalyzerConsts.LocalizationSourceName),
                         url: "TradingAccounts",
                         icon: "fa fa-book"
+                        )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "Markets",
+                        new LocalizableString("Markets", TradingAnalyzerConsts.LocalizationSourceName),
+                        url: "Markets",
+                        icon: "fa fa-money"
                         )
                 );
         }

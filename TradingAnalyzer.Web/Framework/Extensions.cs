@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+using TradingAnalyzer.Entities;
 using TradingAnalyzer.Framework;
 
 namespace TradingAnalyzer.Web.Framework
@@ -12,17 +14,35 @@ namespace TradingAnalyzer.Web.Framework
             return Enum.GetValues(typeof(T)).Cast<T>().ToList();
         }
 
-        public static List<ListItem> EnumToListItems<T>()
+        public static List<ListItem> EnumToListItems<T>(bool includeNone = false)
             where T : struct
         {
             List<ListItem> list = new List<ListItem>();
             foreach(Enum item in Enum.GetValues(typeof(T)))
             {
-                if(item.ToString() != "None")
+                if(item.ToString() != "None" || (item.ToString() == "None" && includeNone))
                     list.Add(new ListItem { Display = item.GetDisplay(), Value = ((int)(object)item).ToString() });
             }
 
             return list;
+        }
+
+        public static List<SelectListItem> EnumToSelectListItems<T>(bool includeNone = false)
+            where T : struct
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (Enum item in Enum.GetValues(typeof(T)))
+            {
+                if (item.ToString() != "None" || (item.ToString() == "None" && includeNone))
+                    list.Add(new SelectListItem { Text = item.GetDisplay(), Value = ((int)(object)item).ToString() });
+            }
+
+            return list;
+        }
+
+        public static List<SelectListItem> GetTradingSetups()
+        {
+            return Extensions.EnumToSelectListItems<TradingSetups>();
         }
     }
 }

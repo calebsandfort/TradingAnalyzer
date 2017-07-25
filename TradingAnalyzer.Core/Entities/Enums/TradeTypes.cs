@@ -10,9 +10,9 @@ namespace TradingAnalyzer.Entities
     public enum TradeTypes
     {
         None,
-        [Display("Long")]
+        [EnumDisplay("Long")]
         Long,
-        [Display("Short")]
+        [EnumDisplay("Short")]
         Short
     }
 }

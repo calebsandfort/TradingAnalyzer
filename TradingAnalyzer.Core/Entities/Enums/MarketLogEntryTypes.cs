@@ -9,15 +9,15 @@ namespace TradingAnalyzer.Entities
 {
     public enum MarketLogEntryTypes
     {
-        [Display("None")]
+        [EnumDisplay("None")]
         None,
-        [Display("Market Analysis")]
+        [EnumDisplay("Market Analysis")]
         MarketAnalysis,
-        [Display("Profit Target")]
+        [EnumDisplay("Profit Target")]
         ProfitTarget,
-        [Display("Trade Enter")]
+        [EnumDisplay("Trade Enter")]
         TradeEnter,
-        [Display("Trade Exit")]
+        [EnumDisplay("Trade Exit")]
         TradeExit
     }
 }

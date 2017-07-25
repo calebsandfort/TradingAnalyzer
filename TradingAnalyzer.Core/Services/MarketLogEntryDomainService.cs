@@ -27,20 +27,16 @@ namespace TradingAnalyzer.Services
 
         public void Add(MarketLogEntryDto dto)
         {
-            using (var unitOfWork = this.UnitOfWorkManager.Begin())
+            TradingDay tradingDay = _tradingDayRepository.FirstOrDefault(x => x.Day.Year == dto.TimeStamp.Year && x.Day.Month == dto.TimeStamp.Month && x.Day.Day == dto.TimeStamp.Day);
+            if (tradingDay == null)
             {
-                TradingDay tradingDay = _tradingDayRepository.FirstOrDefault(x => x.Day.Year == dto.TimeStamp.Year && x.Day.Month == dto.TimeStamp.Month && x.Day.Day == dto.TimeStamp.Day);
-                if(tradingDay == null)
-                {
-                    tradingDay = new TradingDay();
-                    tradingDay.Day = dto.TimeStamp.Date;
-                    this._tradingDayRepository.Insert(tradingDay);
-                }
-                dto.TradingDayId = tradingDay.Id;
-
-                this._marketLogEntryRepository.Insert(dto.MapTo<MarketLogEntry>());
-                unitOfWork.Complete();
+                tradingDay = new TradingDay();
+                tradingDay.Day = dto.TimeStamp.Date;
+                this._tradingDayRepository.Insert(tradingDay);
             }
+            dto.TradingDayId = tradingDay.Id;
+
+            this._marketLogEntryRepository.Insert(dto.MapTo<MarketLogEntry>());
         }
     }
 }

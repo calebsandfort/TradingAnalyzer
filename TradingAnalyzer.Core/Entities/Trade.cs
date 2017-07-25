@@ -6,11 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TradingAnalyzer.Entities.Interfaces;
 
 namespace TradingAnalyzer.Entities
 {
     [Table("Trades")]
-    public class Trade : EntityBase
+    public class Trade : EntityBase, IReconciliable
     {
         public int RefNumber { get; set; }
 
@@ -30,11 +31,16 @@ namespace TradingAnalyzer.Entities
         public String EntryRemarks { get; set; }
         public String EntryScreenshot { get; set; }
 
-        [DataType(DataType.Currency)]
-        public Decimal MFE { get; set; }
+        //[DataType(DataType.Currency)]
+        //public Decimal MFE { get; set; }
+
+        //[DataType(DataType.Currency)]
+        //public Decimal MFA { get; set; }
 
         [DataType(DataType.Currency)]
-        public Decimal MFA { get; set; }
+        public Decimal StopLossPrice { get; set; }
+        [DataType(DataType.Currency)]
+        public Decimal ProfitTakerPrice { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime? ExitDate { get; set; }
@@ -63,5 +69,16 @@ namespace TradingAnalyzer.Entities
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }
         public virtual int TradingAccountId { get; set; }
+
+        [ForeignKey("TradingDayId")]
+        public virtual TradingDay TradingDay { get; set; }
+        public virtual int TradingDayId { get; set; }
+
+        public void Reconcile()
+        {
+            this.Commissions = this.Size * 6.15m;
+            this.ProfitLoss = (((this.TradeType == TradeTypes.Long ? this.ExitPrice - this.EntryPrice : this.EntryPrice - this.ExitPrice)/this.Market.TickSize) * this.Market.TickValue) - this.Commissions;
+            this.ProfitLossPerContract = this.ProfitLoss / this.Size;
+        }
     }
 }

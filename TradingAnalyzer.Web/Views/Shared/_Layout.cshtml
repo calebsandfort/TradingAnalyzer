@@ -3,6 +3,7 @@
 @using Abp.Timing
 @{
     SetAntiForgeryCookie();
+    String container = (ViewBag.FluidContainer != null && ViewBag.FluidContainer) ? "container-fluid" : "container";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -50,13 +51,16 @@
 <body>
     @Html.Partial("_TopBar")
 
-    <div class="container">
+    <div class="@container">
         @RenderBody()
     </div>
 
     <div id="addLogEntryModalWrapper"></div>
+    <div id="tradeModalWrapper"></div>
     @Html.Partial("Modals/_TodoModal")
     @Html.Partial("Modals/_TradingDirectivesModal")
+    @Html.Partial("Modals/_ExpandScreenshotModal")
+    @Html.Partial("Modals/_MarketsModal")
 
     @Scripts.Render("~/Bundles/vendor/js/bottom")
     @Scripts.Render("~/Bundles/js")

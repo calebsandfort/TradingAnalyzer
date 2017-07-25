@@ -9,14 +9,15 @@ namespace TradingAnalyzer.Entities
 {
     public enum TradeExitReasons
     {
+        [EnumDisplay("None")]
         None,
-        [Display("Target Hit")]
+        [EnumDisplay("Target Hit")]
         TargetHit,
-        [Display("Stop Loss Hit")]
+        [EnumDisplay("Stop Loss Hit")]
         StopLossHit,
-        [Display("Reversal Signal")]
+        [EnumDisplay("Reversal Signal")]
         ReversalSignal,
-        [Display("End of Day")]
+        [EnumDisplay("End of Day")]
         EndOfDay
     }
 }

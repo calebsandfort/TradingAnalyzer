@@ -338,6 +338,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kendo.modernizr.custom.js" />
+    <Content Include="Scripts\lodash.core.js" />
+    <Content Include="Scripts\lodash.core.min.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -370,9 +374,12 @@
     <Compile Include="App_Start\TradingAnalyzerWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ConsoleSignalRController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MarketController.cs" />
+    <Compile Include="Controllers\MarketsController.cs" />
     <Compile Include="Controllers\MarketLogController.cs" />
+    <Compile Include="Controllers\TradesController.cs" />
     <Compile Include="Controllers\TradingAccountsController.cs" />
     <Compile Include="Controllers\ViewRendererController.cs" />
     <Compile Include="Framework\EnumModelBinder.cs" />
@@ -380,6 +387,7 @@
     <Compile Include="Framework\GuerillaLogisticsApiJsonResult.cs" />
     <Compile Include="Framework\LinqExtensions.cs" />
     <Compile Include="Framework\ListItem.cs" />
+    <Compile Include="Hubs\ConsoleHub.cs" />
     <Compile Include="Models\AddLogEntryModel.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -425,6 +433,24 @@
     <Content Include="Views\TradingAccounts\_TradingAccountsGrid.cshtml" />
     <Content Include="Views\TradingAccounts\_TradingAccountMenu.cshtml" />
     <Content Include="Views\MarketLog\_MarketLog.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\Modals\_ExpandScreenshotModal.cshtml" />
+    <Content Include="Views\Trades\_TradesGrid.cshtml" />
+    <Content Include="Views\Shared\Modals\_TradeModal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyDateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Market.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyInt.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TradeTypes.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyCurrency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyMultiline.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TradingSetups.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TradeExitReasons.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TradeClassifications.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Screenshot.cshtml" />
+    <Content Include="Views\Markets\Index.cshtml" />
+    <Content Include="Views\Markets\_MarketsGrid.cshtml" />
+    <Content Include="Views\Dashboard\_TradingAccountDetails.cshtml" />
+    <Content Include="Views\Shared\Modals\_MarketsModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -445,6 +471,10 @@
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>TradingAnalyzer.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TradingAnalyzer.Shared\TradingAnalyzer.Shared.csproj">
+      <Project>{38a127cb-fce6-4278-8a04-a1a683d5370d}</Project>
+      <Name>TradingAnalyzer.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TradingAnalyzer.WebApi\TradingAnalyzer.WebApi.csproj">
       <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
       <Name>TradingAnalyzer.WebApi</Name>
@@ -452,7 +482,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Market\" />
     <Folder Include="Views\ViewRenderer\" />
   </ItemGroup>
   <ItemGroup>

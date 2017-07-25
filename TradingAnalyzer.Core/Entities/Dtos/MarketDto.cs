@@ -18,15 +18,20 @@ namespace TradingAnalyzer.Entities.Dtos
         public String Symbol { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double TickValue { get; set; }
-        public Double TickSize { get; set; }
+        public Decimal TickValue { get; set; }
+        public Decimal TickSize { get; set; }
 
         [DataType(DataType.Currency)]
-        public Double PointValue
+        public Decimal InitialMargin { get; set; }
+
+        public int MTT { get; set; }
+
+        [DataType(DataType.Currency)]
+        public Decimal PointValue
         {
             get
             {
-                return 1.0 / this.TickSize * this.TickValue;
+                return (this.TickSize * this.TickValue) == 0 ? 0m : 1.0m / this.TickSize * this.TickValue;
             }
         }
     }

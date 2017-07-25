@@ -27,7 +27,6 @@ namespace TradingAnalyzer.Services
             this._sqlExecuter = sqlExecuter;
         }
 
-        [UnitOfWork(IsDisabled = true)]
         public void Add(MarketLogEntryDto dto)
         {
             this._marketLogEntryDomainService.Add(dto);
@@ -35,7 +34,10 @@ namespace TradingAnalyzer.Services
 
         public void Purge()
         {
-            this._sqlExecuter.Execute($"DELETE FROM [MarketLogEntries]");
+            foreach(MarketLogEntry entry in this._marketLogEntryRepository.GetAll().Where(x => x.TradingAccount.Active))
+            {
+                this._marketLogEntryRepository.Delete(entry.Id);
+            }
         }
     }
 }

@@ -4,7 +4,9 @@
     <text name="HomePage" value="Home page" />
     <text name="MarketLog" value="Market Log" />
     <text name="TradingAccounts" value="Accounts" />
+    <text name="Dashboard" value="Dashboard" />
     <text name="About" value="About" />
+    <text name="Markets" value="Markets" />
     <text name="WelcomeMessage" value="Welcome to TradingAnalyzer!" />
     <text name="Home_ThisIsATemplate" value="This project template is a starting point to develop web applicatins using..." />
     <text name="Home_AspNetDescription" value="ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that enables a clean separation of concerns and that gives you full control over markup for enjoyable, agile development." />

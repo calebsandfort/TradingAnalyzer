@@ -11,19 +11,21 @@ namespace TradingAnalyzer.Entities
     public enum TradingSetups
     {
         None = 0,
-        [Display("CongestionZone")]
+        [EnumDisplay("Congestion Zone")]
         CongestionZone = 1,
-        [Display("Congestion Breakout Failure")]
+        [EnumDisplay("Congestion Breakout Failure")]
         CongestionBreakoutFailure = 2,
-        [Display("Trend Bar Failure")]
+        [EnumDisplay("Trend Bar Failure")]
         TrendBarFailure = 4,
-        [Display("Anti-Climax")]
+        [EnumDisplay("Anti-Climax")]
         AntiClimax = 8,
-        [Display("Deceleration")]
+        [EnumDisplay("Deceleration")]
         Deceleration = 16,
-        [Display("Anxiety Zone")]
+        [EnumDisplay("Anxiety Zone")]
         AnxietyZone = 32,
-        [Display("Surge")]
-        Surge = 64
+        [EnumDisplay("Surge")]
+        Surge = 64,
+        [EnumDisplay("Pressure Zone")]
+        PressureZone = 128
     }
 }

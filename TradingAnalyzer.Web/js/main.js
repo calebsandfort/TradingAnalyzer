@@ -2,8 +2,36 @@
 if (!TradingAnalyzer) TradingAnalyzer = {
     Log: {},
     Util: {},
-    TradingAccount: {}
+    TradingAccount: {},
+    Trade: {},
+    Market: {
+        Markets: [
+            { Name: "E-Mini NASDAQ 100", Symbol: "ES", TickSize: .25, TickValue: 5, InitialMargin: 4620 },
+            { Name: "E-Mini S&P 500", Symbol: "NQ", TickSize: .25, TickValue: 12.50, InitialMargin: 4290 },
+            { Name: "E-Mini Dow", Symbol: "YM", TickSize: 1, TickValue: 5, InitialMargin: 3905 },
+            { Name: "Gold", Symbol: "GC", TickSize: .10, TickValue: 10, InitialMargin: 4345 },
+            { Name: "Oil", Symbol: "CL", TickSize: .01, TickValue: 10, InitialMargin: 2750 }
+        ]
+    },
+    TradeExitReasons: [
+        { Value: 0, Display: "None", ExitPriceField: "EntryPrice" },
+        { Value: 1, Display: "Target Hit", ExitPriceField: "ProfitTakerPrice" },
+        { Value: 2, Display: "Stop Loss Hit", ExitPriceField: "StopLossPrice" },
+        { Value: 3, Display: "Reversal Signal", ExitPriceField: "EntryPrice" },
+        { Value: 4, Display: "End of Day", ExitPriceField: "EntryPrice" }
+    ]
 };
+
+//[EnumDisplay("None")]
+//None,
+//    [EnumDisplay("Target Hit")]
+//TargetHit,
+//    [EnumDisplay("Stop Loss Hit")]
+//StopLossHit,
+//    [EnumDisplay("Reversal Signal")]
+//ReversalSignal,
+//    [EnumDisplay("End of Day")]
+//EndOfDay
 
 (function ($) {
 
@@ -35,6 +63,16 @@ if (!TradingAnalyzer) TradingAnalyzer = {
     }
 })(jQuery);
 
+$(function () {
+    $("body").on("click", ".expandScreenshot", TradingAnalyzer.Util.expandScreenshotClick);
+});
+
+TradingAnalyzer.Util.expandScreenshotClick = function () {
+    var expandScreenshotModal = $("#expandScreenshotModal");
+    expandScreenshotModal.find("img").attr("src", $(this).attr("src"));
+    expandScreenshotModal.modal("show");
+}
+
 TradingAnalyzer.Util.initForm = function (id, submitFunc) {
     var _$form = $('#' + id);
 
@@ -51,6 +89,18 @@ TradingAnalyzer.Util.initForm = function (id, submitFunc) {
             }
 
             var input = _$form.serializeFormToObject();
+
+            _$form.find("select[multiple=multiple]").each(function () {
+                var listBox = $(this);
+                var id = listBox.attr("id");
+
+                if (listBox.val() == null) {
+                    input[id] = [];
+                }
+                else {
+                    input[id] = listBox.val();
+                }
+            });
 
             abp.ui.setBusy('#' + id);
 
@@ -89,7 +139,7 @@ TradingAnalyzer.Util.hideEditField = function (container, name) {
     if (field.size() > 0) field.closest(".editor-field").hide();
 }
 
-TradingAnalyzer.Log.showAddLogEntryModal = function (target) {
+TradingAnalyzer.Log.showAddLogEntryModal = function () {
     $.ajax({
         type: "GET",
         url: abp.appPath + 'MarketLog/AddLogEntryModal',
@@ -98,8 +148,10 @@ TradingAnalyzer.Log.showAddLogEntryModal = function (target) {
             TradingAnalyzer.Util.initForm("addLogEntryForm", TradingAnalyzer.Log.addLogEntry);
             TradingAnalyzer.Util.showModalForm("addLogEntryModal", false);
 
-            document.getElementById("pasteTarget").
-                addEventListener("paste", handlePaste);
+            document.getElementById("pasteTargetScreenshot").
+                addEventListener("paste", function (e) {
+                    TradingAnalyzer.Util.handlePaste("Screenshot", e);
+                });
         },
         contentType: "application/json"
     });
@@ -125,7 +177,7 @@ TradingAnalyzer.Log.refresh = function (input) {
     $("#logListView").data("kendoListView").dataSource.read();
 }
 
-function handlePaste(e) {
+TradingAnalyzer.Util.handlePaste = function (fieldName, e) {
     for (var i = 0; i < e.clipboardData.items.length; i++) {
         var item = e.clipboardData.items[i];
         if (item.type.indexOf("image") > -1) {
@@ -133,9 +185,9 @@ function handlePaste(e) {
             var reader = new FileReader();
 
             reader.onloadend = function () {
-                $("#pasteTarget").hide();
-                $("#imgScreenshot").attr("src", this.result).show();
-                $("#Screenshot").val(this.result);
+                $("#pasteTarget" + fieldName).hide();
+                $("#img" + fieldName).attr("src", this.result).show();
+                $("#" + fieldName).val(this.result);
             };
 
             reader.readAsDataURL(f);
@@ -163,4 +215,116 @@ TradingAnalyzer.TradingAccount.setActive = function (id, name) {
             logListView.data("kendoListView").dataSource.read();
         }
     });
+}
+
+TradingAnalyzer.Trade.grid_edit = function (e) {
+    TradingAnalyzer.Util.hideEditField(e.container, "IsNew");
+    TradingAnalyzer.Util.hideEditField(e.container, "Id");
+    TradingAnalyzer.Util.hideEditField(e.container, "RefNumber");
+    TradingAnalyzer.Util.hideEditField(e.container, "Market");
+    TradingAnalyzer.Util.hideEditField(e.container, "ProfitLoss");
+    TradingAnalyzer.Util.hideEditField(e.container, "TradingAccount");
+    TradingAnalyzer.Util.hideEditField(e.container, "ProfitLossPerContract");
+}
+
+TradingAnalyzer.Trade.showTradeModal = function (id) {
+    $.ajax({
+        type: "GET",
+        url: abp.appPath + 'Trades/TradeModal?id=' + id,
+        success: function (r) {
+            $("#tradeModalWrapper").html(r);
+            TradingAnalyzer.Util.initForm("tradeForm", TradingAnalyzer.Trade.saveTrade);
+            TradingAnalyzer.Util.showModalForm("tradeModal", false);
+
+            if ($("#pasteTargetEntryScreenshot").size() > 0) {
+                document.getElementById("pasteTargetEntryScreenshot").
+                    addEventListener("paste", function (e) {
+                        TradingAnalyzer.Util.handlePaste("EntryScreenshot", e);
+                    });
+            }
+
+            if ($("#pasteTargetExitScreenshot").size() > 0) {
+                document.getElementById("pasteTargetExitScreenshot").
+                    addEventListener("paste", function (e) {
+                        TradingAnalyzer.Util.handlePaste("ExitScreenshot", e);
+                    });
+            }
+        },
+        contentType: "application/json"
+    });
+}
+
+TradingAnalyzer.Trade.exitReasonSelect = function (e) {
+    var exitReasonInt = parseInt(e.dataItem.Value);
+    var exitReason = _.find(TradingAnalyzer.TradeExitReasons, { 'Value': exitReasonInt });
+
+    $("#ExitPrice").data("kendoNumericTextBox").value($("#" + exitReason.ExitPriceField).data("kendoNumericTextBox").value());
+}
+
+TradingAnalyzer.Trade.entryDateChange = function () {
+    $("#ExitDate").data("kendoDateTimePicker").value(this.value());
+}
+
+TradingAnalyzer.Trade.entryPriceChange = function () {
+    var value = this.value();
+    $("#StopLossPrice").data("kendoNumericTextBox").value(value);
+    $("#ProfitTakerPrice").data("kendoNumericTextBox").value(value);
+}
+
+TradingAnalyzer.Trade.marketChange = function () {
+    var id = this.value();
+
+    abp.services.app.market.get(id).done(function (market) {
+        $("#Timeframe").data("kendoNumericTextBox").value(market.mtt);
+
+        var currencyControls = ["EntryPrice", "StopLossPrice", "ProfitTakerPrice", "ExitPrice"];
+
+        _.forEach(currencyControls, function (id) {
+            $("#" + id).data("kendoNumericTextBox").step(market.tickSize);
+        });
+    });
+}
+
+TradingAnalyzer.Trade.purge = function () {
+    abp.ui.setBusy('#tradesGrid');
+    abp.services.app.trade.purge().done(function () {
+        TradingAnalyzer.Trade.refresh();
+        abp.ui.clearBusy('#tradesGrid');
+    });
+}
+
+TradingAnalyzer.Trade.saveTrade = function (input) {
+    if (input.EntryScreenshot == "{ id = EntryScreenshot, class = includeHidden }") input.EntryScreenshot = '';
+    if (input.ExitScreenshot == "{ id = ExitScreenshot, class = includeHidden }") input.ExitScreenshot = '';
+
+    abp.services.app.trade.save(input).done(function (reconcileTradingAccount) {
+        TradingAnalyzer.Util.hideModalForm("tradeModal");
+        TradingAnalyzer.Trade.refresh();
+        TradingAnalyzer.Log.refresh();
+
+        if (reconcileTradingAccount) {
+            abp.services.app.tradingAccount.reconcile().done(function () {
+                TradingAnalyzer.TradingAccount.refreshDetails();
+            });
+        }
+    });
+    
+    TradingAnalyzer.Util.hideModalForm("tradeModal");
+}
+
+TradingAnalyzer.TradingAccount.purge = function () {
+    abp.ui.setBusy('#tradesGrid');
+    abp.services.app.tradingAccount.purge().done(function () {
+        TradingAnalyzer.TradingAccount.refreshDetails();
+        TradingAnalyzer.Trade.refresh();
+        abp.ui.clearBusy('#tradesGrid');
+    });
+}
+
+TradingAnalyzer.TradingAccount.refreshDetails = function (input) {
+    $("#tradingAccountDetailsListView").data("kendoListView").dataSource.read();
+}
+
+TradingAnalyzer.Trade.refresh = function (input) {
+    $("#tradesGrid").data("kendoGrid").dataSource.read();
 }

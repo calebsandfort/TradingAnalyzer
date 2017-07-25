@@ -37,5 +37,20 @@ namespace TradingAnalyzer.Web.Controllers
         {
             return new GuerillaLogisticsApiJsonResult(Extensions.EnumToListItems<MarketLogEntryTypes>());
         }
+
+        public ActionResult GetTradeTypes()
+        {
+            return new GuerillaLogisticsApiJsonResult(Extensions.EnumToListItems<TradeTypes>());
+        }
+
+        public ActionResult GetTradeExitReasons()
+        {
+            return new GuerillaLogisticsApiJsonResult(Extensions.EnumToListItems<TradeExitReasons>(true));
+        }
+
+        public ActionResult GetTradeClassifications()
+        {
+            return new GuerillaLogisticsApiJsonResult(Extensions.EnumToListItems<TradeClassifications>());
+        }
     }
 }

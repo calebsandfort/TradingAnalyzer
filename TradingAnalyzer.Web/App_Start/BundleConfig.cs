@@ -48,6 +48,7 @@ namespace TradingAnalyzer.Web
                         "~/Scripts/sweetalert/sweet-alert.min.js",
                         "~/Scripts/others/spinjs/spin.js",
                         "~/Scripts/others/spinjs/jquery.spin.js",
+                        "~/Scripts/lodash.min.js",
 
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",

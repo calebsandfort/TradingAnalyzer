@@ -58,7 +58,7 @@ namespace TradingAnalyzer.Web.Controllers
             model.Date = DateTime.Now;
             if(this._marketLogEntryRepository.Count() > 0)
             {
-                MarketLogEntry lastEntry = this._marketLogEntryRepository.GetAll().OrderByDescending(x => x.TimeStamp).First();
+                MarketLogEntry lastEntry = this._marketLogEntryRepository.GetAll().Where(x => x.TradingAccount.Active).OrderByDescending(x => x.TimeStamp).First();
 
                 model.Date = lastEntry.TimeStamp;
                 model.MarketId = lastEntry.MarketId;
