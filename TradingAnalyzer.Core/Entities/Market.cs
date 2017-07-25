@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TradingAnalyzer.Entities
 {
     [Table("Markets")]
-    public class Market : Entity<int>
+    public class Market : EntityBase
     {
         public String Name { get; set; }
         public String Symbol { get; set; }

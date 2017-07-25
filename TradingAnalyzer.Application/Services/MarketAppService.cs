@@ -11,30 +11,29 @@ using System.Threading.Tasks;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Shared.SqlExecuter;
+using Abp.BackgroundJobs;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer.Services
 {
-    public class MarketAppService : IMarketAppService
+    public class MarketAppService : AppServiceBase, IMarketAppService
     {
-        public readonly IRepository<Market> _marketRepository;
-        public readonly ISqlExecuter _sqlExecuter;
-        readonly IObjectMapper _objectMapper;
+        public readonly IRepository<Market> _repository;
 
-        public MarketAppService(IRepository<Market> marketRepository, ISqlExecuter sqlExecuter, IObjectMapper objectMapper)
+        public MarketAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper, IRepository<Market> repository)
+            : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
-            this._marketRepository = marketRepository;
-            this._sqlExecuter = sqlExecuter;
-            _objectMapper = objectMapper;
+            this._repository = repository;
         }
 
         public MarketDto Get(int id)
         {
-            return _marketRepository.Get(id).MapTo<MarketDto>();
+            return _repository.Get(id).MapTo<MarketDto>();
         }
 
         public List<MarketDto> GetAll()
         {
-            return _objectMapper.Map<List<MarketDto>>(_marketRepository.GetAll().OrderBy(x => x.Symbol).ToList());
+            return _objectMapper.Map<List<MarketDto>>(_repository.GetAll().OrderBy(x => x.Symbol).ToList());
         }
 
         public void Save(MarketDto dto)
@@ -42,11 +41,11 @@ namespace TradingAnalyzer.Services
             if (dto.IsNew)
             {
                 Market market = dto.MapTo<Market>();
-                this._marketRepository.Insert(market);
+                this._repository.Insert(market);
             }
             else
             {
-                Market market = this._marketRepository.Get(dto.Id);
+                Market market = this._repository.Get(dto.Id);
                 dto.MapTo(market);
             }
         }

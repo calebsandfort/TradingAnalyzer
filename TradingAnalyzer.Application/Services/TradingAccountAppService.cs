@@ -11,22 +11,22 @@ using System.Threading.Tasks;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Shared.SqlExecuter;
+using Abp.BackgroundJobs;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer.Services
 {
-    public class TradingAccountAppService : ITradingAccountAppService
+    public class TradingAccountAppService : AppServiceBase, ITradingAccountAppService
     {
-        public readonly IRepository<TradingAccount> _tradingAccountRepository;
+        public readonly IRepository<TradingAccount> _repository;
         public readonly IRepository<Trade> _tradeRepository;
-        public readonly ISqlExecuter _sqlExecuter;
-        readonly IObjectMapper _objectMapper;
 
-        public TradingAccountAppService(IRepository<TradingAccount> tradingAccountRepository, IRepository<Trade> tradeRepository, ISqlExecuter sqlExecuter, IObjectMapper objectMapper)
+        public TradingAccountAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper,
+            IRepository<TradingAccount> repository, IRepository<Trade> tradeRepository)
+            : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
-            this._tradingAccountRepository = tradingAccountRepository;
+            this._repository = repository;
             this._tradeRepository = tradeRepository;
-            this._sqlExecuter = sqlExecuter;
-            _objectMapper = objectMapper;
         }
 
         public void Save(TradingAccountDto dto)
@@ -34,11 +34,11 @@ namespace TradingAnalyzer.Services
             if (dto.IsNew)
             {
                 TradingAccount tradingAccount = dto.MapTo<TradingAccount>();
-                this._tradingAccountRepository.Insert(tradingAccount);
+                this._repository.Insert(tradingAccount);
             }
             else
             {
-                TradingAccount tradingAccount = this._tradingAccountRepository.Get(dto.Id);
+                TradingAccount tradingAccount = this._repository.Get(dto.Id);
                 dto.MapTo(tradingAccount);
             }
 
@@ -47,12 +47,12 @@ namespace TradingAnalyzer.Services
 
         public TradingAccountDto GetActive()
         {
-            return this._tradingAccountRepository.FirstOrDefault(x => x.Active).MapTo<TradingAccountDto>();
+            return this._repository.FirstOrDefault(x => x.Active).MapTo<TradingAccountDto>();
         }
 
         public void SetActive(int id)
         {
-            foreach(TradingAccount tradingAccount in this._tradingAccountRepository.GetAllList())
+            foreach(TradingAccount tradingAccount in this._repository.GetAllList())
             {
                 tradingAccount.Active = tradingAccount.Id == id;
             }
@@ -60,12 +60,12 @@ namespace TradingAnalyzer.Services
 
         public List<TradingAccountDto> GetAll()
         {
-            return _objectMapper.Map<List<TradingAccountDto>>(_tradingAccountRepository.GetAll().OrderBy(x => x.Name).ToList());
+            return _objectMapper.Map<List<TradingAccountDto>>(_repository.GetAll().OrderBy(x => x.Name).ToList());
         }
 
         public void Reconcile()
         {
-            TradingAccount tradingAccount = this._tradingAccountRepository.GetAllIncluding(x => x.Trades).First(x => x.Active);
+            TradingAccount tradingAccount = this._repository.GetAllIncluding(x => x.Trades).First(x => x.Active);
             List<Trade> closedTrades = this._tradeRepository.GetAll().Where(x => x.TradingAccountId == tradingAccount.Id && x.ExitReason != TradeExitReasons.None).ToList();
 
             tradingAccount.ProfitLoss = closedTrades.Sum(x => x.ProfitLoss);

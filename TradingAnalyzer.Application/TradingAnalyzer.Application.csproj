@@ -108,6 +108,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\AppServiceBase.cs" />
     <Compile Include="Services\IMarketAppService.cs" />
     <Compile Include="Services\ITradeAppService.cs" />
     <Compile Include="Services\ITradingDayAppService.cs" />

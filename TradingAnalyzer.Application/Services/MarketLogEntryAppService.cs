@@ -11,20 +11,22 @@ using System.Threading.Tasks;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Shared.SqlExecuter;
+using Abp.BackgroundJobs;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer.Services
 {
-    public class MarketLogEntryAppService : IMarketLogEntryAppService
+    public class MarketLogEntryAppService : AppServiceBase, IMarketLogEntryAppService
     {
+        public readonly IRepository<MarketLogEntry> _repository;
         readonly IMarketLogEntryDomainService _marketLogEntryDomainService;
-        public readonly IRepository<MarketLogEntry> _marketLogEntryRepository;
-        public readonly ISqlExecuter _sqlExecuter;
 
-        public MarketLogEntryAppService(IMarketLogEntryDomainService marketLogEntryDomainService, IRepository<MarketLogEntry> marketLogEntryRepository, ISqlExecuter sqlExecuter)
+        public MarketLogEntryAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper,
+            IMarketLogEntryDomainService marketLogEntryDomainService, IRepository<MarketLogEntry> repository)
+            : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
+            this._repository = repository;
             this._marketLogEntryDomainService = marketLogEntryDomainService;
-            this._marketLogEntryRepository = marketLogEntryRepository;
-            this._sqlExecuter = sqlExecuter;
         }
 
         public void Add(MarketLogEntryDto dto)
@@ -34,9 +36,9 @@ namespace TradingAnalyzer.Services
 
         public void Purge()
         {
-            foreach(MarketLogEntry entry in this._marketLogEntryRepository.GetAll().Where(x => x.TradingAccount.Active))
+            foreach(MarketLogEntry entry in this._repository.GetAll().Where(x => x.TradingAccount.Active))
             {
-                this._marketLogEntryRepository.Delete(entry.Id);
+                this._repository.Delete(entry.Id);
             }
         }
     }

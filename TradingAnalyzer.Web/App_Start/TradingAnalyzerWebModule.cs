@@ -8,6 +8,7 @@ using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Web.Mvc;
+using Abp.Web.SignalR;
 
 namespace TradingAnalyzer.Web
 {
@@ -15,7 +16,8 @@ namespace TradingAnalyzer.Web
         typeof(AbpWebMvcModule),
         typeof(TradingAnalyzerDataModule), 
         typeof(TradingAnalyzerApplicationModule), 
-        typeof(TradingAnalyzerWebApiModule))]
+        typeof(TradingAnalyzerWebApiModule),
+        typeof(AbpWebSignalRModule))]
     public class TradingAnalyzerWebModule : AbpModule
     {
         public override void PreInitialize()

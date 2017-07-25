@@ -11,35 +11,33 @@ using System.Threading.Tasks;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Shared.SqlExecuter;
+using Abp.BackgroundJobs;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer.Services
 {
-    public class TradingDayAppService : ITradingDayAppService
+    public class TradingDayAppService : AppServiceBase, ITradingDayAppService
     {
-        public readonly IRepository<TradingDay> _tradingDayRepository;
-        public readonly ISqlExecuter _sqlExecuter;
-        readonly IObjectMapper _objectMapper;
+        public readonly IRepository<TradingDay> _repository;
 
-        public TradingDayAppService(IRepository<TradingDay> tradingDayRepository, ISqlExecuter sqlExecuter, IObjectMapper objectMapper)
+        public TradingDayAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper,
+            IRepository<TradingDay> repository)
+            : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
-            this._tradingDayRepository = tradingDayRepository;
-            this._sqlExecuter = sqlExecuter;
-            _objectMapper = objectMapper;
+            this._repository = repository;
         }
 
         public TradingDayDto Get(DateTime date)
         {
-            TradingDay tradingDay = _tradingDayRepository.FirstOrDefault(x => x.Day.Year == date.Year && x.Day.Month == date.Month && x.Day.Day == date.Day);
+            TradingDay tradingDay = _repository.FirstOrDefault(x => x.Day.Year == date.Year && x.Day.Month == date.Month && x.Day.Day == date.Day);
             if (tradingDay == null)
             {
                 tradingDay = new TradingDay();
                 tradingDay.Day = date.Date;
-                this._tradingDayRepository.Insert(tradingDay);
+                this._repository.Insert(tradingDay);
             }
 
             return tradingDay.MapTo<TradingDayDto>();
         }
-
-
     }
 }

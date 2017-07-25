@@ -14,29 +14,29 @@ using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Shared.SqlExecuter;
 using TradingAnalyzer.Framework;
 using Abp.Timing;
+using Abp.BackgroundJobs;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer.Services
 {
-    public class TradeAppService : ITradeAppService
+    public class TradeAppService : AppServiceBase, ITradeAppService
     {
-        public readonly IRepository<Trade> _tradeRepository;
+        public readonly IRepository<Trade> _repository;
         public readonly IRepository<Market> _marketRepository;
         public readonly ITradingAccountAppService _tradingAccountAppService;
         public readonly ITradingDayAppService _tradingDayAppService;
         readonly IRepository<MarketLogEntry> _marketLogEntryRepository;
-        public readonly ISqlExecuter _sqlExecuter;
-        readonly IObjectMapper _objectMapper;
 
-        public TradeAppService(IRepository<Trade> tradeRepository, IRepository<Market> marketRepository, ITradingAccountAppService tradingAccountAppService,
-            ITradingDayAppService tradingDayAppService, IRepository<MarketLogEntry> marketLogEntryRepository, ISqlExecuter sqlExecuter, IObjectMapper objectMapper)
+        public TradeAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper, IRepository<Trade> repository,
+            IRepository<Market> marketRepository, ITradingAccountAppService tradingAccountAppService,
+            ITradingDayAppService tradingDayAppService, IRepository<MarketLogEntry> marketLogEntryRepository)
+            : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
-            this._tradeRepository = tradeRepository;
+            this._repository = repository;
             this._marketRepository = marketRepository;
             this._tradingAccountAppService = tradingAccountAppService;
             this._tradingDayAppService = tradingDayAppService;
             this._marketLogEntryRepository = marketLogEntryRepository;
-            this._sqlExecuter = sqlExecuter;
-            _objectMapper = objectMapper;
         }
 
         public bool Save(TradeDto dto)
@@ -70,7 +70,7 @@ namespace TradingAnalyzer.Services
             }
             else
             {
-                trade = this._tradeRepository.Get(dto.Id);
+                trade = this._repository.Get(dto.Id);
                 bool exitReasonChanged = dto.ExitReason != trade.ExitReason && dto.ExitReason != TradeExitReasons.None;
                 dto.MapTo(trade);
 
@@ -97,7 +97,7 @@ namespace TradingAnalyzer.Services
 
             if (dto.IsNew)
             {
-                this._tradeRepository.Insert(trade);
+                this._repository.Insert(trade);
             }
 
             return reconcileTradingAccount;
@@ -105,14 +105,14 @@ namespace TradingAnalyzer.Services
 
         public List<TradeDto> GetAll()
         {
-            return _objectMapper.Map<List<TradeDto>>(_tradeRepository.GetAll().OrderByDescending(x => x.EntryDate).ToList());
+            return _objectMapper.Map<List<TradeDto>>(_repository.GetAll().OrderByDescending(x => x.EntryDate).ToList());
         }
 
         public void Purge()
         {
-            foreach (Trade trade in this._tradeRepository.GetAll().Where(x => x.TradingAccount.Active))
+            foreach (Trade trade in this._repository.GetAll().Where(x => x.TradingAccount.Active))
             {
-                this._tradeRepository.Delete(trade.Id);
+                this._repository.Delete(trade.Id);
             }
         }
     }

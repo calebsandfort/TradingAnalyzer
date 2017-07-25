@@ -1,6 +1,7 @@
 ﻿var TradingAnalyzer;
 if (!TradingAnalyzer) TradingAnalyzer = {
     Log: {},
+    Console: {},
     Util: {},
     TradingAccount: {},
     Trade: {},
@@ -66,6 +67,22 @@ if (!TradingAnalyzer) TradingAnalyzer = {
 $(function () {
     $("body").on("click", ".expandScreenshot", TradingAnalyzer.Util.expandScreenshotClick);
 });
+
+$(document).ready(function () {
+    var consoleHub = $.connection.consoleHub; //get a reference to the hub
+
+    consoleHub.client.writeLine = function (line) { //register for incoming messages
+        TradingAnalyzer.Console.writeLine(line);
+    };
+});
+
+TradingAnalyzer.Console.clear = function () {
+    $("#consoleWell").html("");
+}
+
+TradingAnalyzer.Console.writeLine = function (line) {
+    $("#consoleWell").prepend("<div>" + line + "</div>");
+}
 
 TradingAnalyzer.Util.expandScreenshotClick = function () {
     var expandScreenshotModal = $("#expandScreenshotModal");
