@@ -9,6 +9,7 @@ using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer.Web
 {
@@ -17,6 +18,7 @@ namespace TradingAnalyzer.Web
         typeof(TradingAnalyzerDataModule), 
         typeof(TradingAnalyzerApplicationModule), 
         typeof(TradingAnalyzerWebApiModule),
+        typeof(TradingAnalyzerSharedModule),
         typeof(AbpWebSignalRModule))]
     public class TradingAnalyzerWebModule : AbpModule
     {

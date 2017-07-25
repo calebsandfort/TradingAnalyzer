@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Services\AppServiceBase.cs" />
     <Compile Include="Services\IMarketAppService.cs" />
+    <Compile Include="Services\IMonteCarloAppService.cs" />
     <Compile Include="Services\ITradeAppService.cs" />
     <Compile Include="Services\ITradingDayAppService.cs" />
     <Compile Include="Services\ITradingAccountAppService.cs" />
@@ -117,17 +118,20 @@
     <Compile Include="Services\MarketAppService.cs">
       <DependentUpon>IMarketAppService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\MarketLogEntryAppService.cs">
+      <DependentUpon>IMarketLogEntryAppService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MonteCarloAppService.cs">
+      <DependentUpon>IMonteCarloAppService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\TradeAppService.cs">
       <DependentUpon>ITradeAppService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Services\TradingDayAppService.cs">
-      <DependentUpon>ITradingDayAppService.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\TradingAccountAppService.cs">
       <DependentUpon>ITradingAccountAppService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services\MarketLogEntryAppService.cs">
-      <DependentUpon>IMarketLogEntryAppService.cs</DependentUpon>
+    <Compile Include="Services\TradingDayAppService.cs">
+      <DependentUpon>ITradingDayAppService.cs</DependentUpon>
     </Compile>
     <Compile Include="TradingAnalyzerApplicationModule.cs" />
     <Compile Include="TradingAnalyzerAppServiceBase.cs" />

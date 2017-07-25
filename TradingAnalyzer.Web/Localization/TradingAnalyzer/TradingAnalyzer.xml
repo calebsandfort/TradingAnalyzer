@@ -5,6 +5,7 @@
     <text name="MarketLog" value="Market Log" />
     <text name="TradingAccounts" value="Accounts" />
     <text name="Dashboard" value="Dashboard" />
+    <text name="MonteCarloSimulations" value="Simulations" />
     <text name="About" value="About" />
     <text name="Markets" value="Markets" />
     <text name="WelcomeMessage" value="Welcome to TradingAnalyzer!" />

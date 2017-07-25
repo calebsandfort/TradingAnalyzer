@@ -39,8 +39,8 @@ namespace TradingAnalyzer.Web.Controllers
         {
             DataSourceResult result = new DataSourceResult();
 
-            result.Data = _objectMapper.Map<List<TradeDto>>(_tradeRepository.GetAll().Where(request.Filters).OrderBy(request.Sorts[0]).ToList());
-            result.Total = _tradeRepository.GetAll().Where(request.Filters).Count();
+            result.Data = _objectMapper.Map<List<TradeDto>>(_tradeRepository.GetAll().Where(request.Filters).Where(x => x.TradingAccount.Active).OrderBy(request.Sorts[0]).ToList());
+            result.Total = _tradeRepository.GetAll().Where(request.Filters).Where(x => x.TradingAccount.Active).Count();
 
             return new GuerillaLogisticsApiJsonResult(result);
         }

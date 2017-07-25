@@ -1,0 +1,132 @@
+﻿@(Html.Kendo().Grid<MonteCarloSimulationDto>()
+    .Name("monteCarloSimulationsGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.TimeStamp).Width(150).Format("{0:M/d/yyyy h:mm tt}").ClientTemplate("<a href='javascript:void(0);' onclick='TradingAnalyzer.MonteCarloSimulation.showMonteCarloSimulationModal(#:Id#)'>#:kendo.toString(TimeStamp, 'M/d/yyyy h:mm tt')#</a>");
+        columns.Bound(x => x.TradingAccount).Width(75);
+        columns.Bound(x => x.NumberOfTradesPerIteration).Width(75);
+        columns.Bound(x => x.NumberOfIterations).Width(75);
+        columns.Command(command => { command.Destroy(); }).Width(200);
+
+    })
+    .HtmlAttributes(new { style ="height: 730px;" })
+    //.ClientDetailTemplateId("tradesGridDetailTemplate")
+    .ToolBar(toolbar =>
+    {
+        //toolbar.Create().Text("Add");
+        toolbar.Template("<a class='k-button' href='javascript:void(0);' onclick='TradingAnalyzer.MonteCarloSimulation.showMonteCarloSimulationModal(0)'>Add</a><a class='k-button' href='javascript:void(0);' onclick='TradingAnalyzer.MonteCarloSimulation.purge()'>Purge</a>");
+    })
+    //.Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Sortable(sortable => sortable
+        .AllowUnsort(false))
+    .Scrollable()
+    .Filterable(filterable => filterable
+        .Extra(false)
+    //.Operators(operators => operators
+    //.ForString(str => str.Clear()
+    //    .IsEqualTo("Is")
+    //))
+    )
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Sort(sort => sort.Add(x => x.TimeStamp).Descending())
+        .Read(read =>
+        {
+            read.Action("MonteCarloSimulations_Read", "MonteCarloSimulations");
+        }
+        )
+        .Model(model =>
+        {
+            model.Id(ce => ce.Id);
+            model.Field(f => f.IsNew).Editable(false);
+            model.Field(f => f.Id).Editable(false);
+        })
+        .Create(create =>
+        {
+            create.Action("MonteCarloSimulation_Create", "MonteCarloSimulations");
+        })
+        .Update(update =>
+        {
+            update.Action("MonteCarloSimulation_Update", "MonteCarloSimulations");
+        })
+        .Destroy(destroy =>
+        {
+            destroy.Action("MonteCarloSimulation_Destroy", "MonteCarloSimulations");
+        })
+    )
+)
+
+@*<script id="tradesGridDetailTemplate" type="text/kendo-tmpl">
+    <div class="row">
+        <div class="col-md-4">
+            <div role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Setups</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static">#:EntrySetupsString#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Entry Rmks</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static">#:EntryRemarks#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Entry Ss</label>
+                    <div class="col-sm-7">
+                        #if(ShowEntryScreenshot){#
+                        <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src="#:EntryScreenshot#" />
+                        #}#
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Reason</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static">#:ExitReasonString#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Exit Rmks</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static">#:ExitRemarks#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Exit Ss</label>
+                    <div class="col-sm-7">
+                        #if(ShowExitScreenshot){#
+                        <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src="#:ExitScreenshot#" />
+                        #}#
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Exit</label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">#:kendo.toString(ExitPrice, 'c')#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">Commissions</label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">#:kendo.toString(Commissions, 'c')#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-group-input">P/L/C</label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">#:kendo.toString(ProfitLossPerContract, 'c')#</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>*@

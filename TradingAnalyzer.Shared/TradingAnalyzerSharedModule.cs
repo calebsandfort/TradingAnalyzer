@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TradingAnalyzer.Shared
 {
-    public class MachineLearningBPSharedModule : AbpModule
+    public class TradingAnalyzerSharedModule : AbpModule
     {
         public override void PreInitialize()
         {

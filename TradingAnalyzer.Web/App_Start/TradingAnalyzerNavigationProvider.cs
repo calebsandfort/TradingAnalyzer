@@ -45,6 +45,14 @@ namespace TradingAnalyzer.Web
                         url: "Markets",
                         icon: "fa fa-money"
                         )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "MonteCarloSimulations",
+                        new LocalizableString("MonteCarloSimulations", TradingAnalyzerConsts.LocalizationSourceName),
+                        url: "MonteCarloSimulations",
+                        icon: "fa fa-cloud"
+                        )
                 );
         }
     }

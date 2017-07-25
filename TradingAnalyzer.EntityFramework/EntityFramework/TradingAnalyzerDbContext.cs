@@ -13,6 +13,7 @@ namespace TradingAnalyzer.EntityFramework
         public virtual IDbSet<MarketLogEntry> MarketLogEntries { get; set; }
         public virtual IDbSet<TradingDirective> TradingDirectives { get; set; }
         public virtual IDbSet<Market> Markets { get; set; }
+        public virtual IDbSet<MonteCarloSimulation> MonteCarloSimulations { get; set; }
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }

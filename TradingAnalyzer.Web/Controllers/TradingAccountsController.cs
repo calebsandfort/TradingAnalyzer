@@ -33,6 +33,11 @@ namespace TradingAnalyzer.Web.Controllers
             return View();
         }
 
+        public ActionResult GetTradingAccounts()
+        {
+            return new GuerillaLogisticsApiJsonResult(_tradingAccountAppService.GetAll());
+        }
+
         [ChildActionOnly]
         public PartialViewResult TradingAccountMenu()
         {

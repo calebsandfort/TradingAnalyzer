@@ -5,6 +5,7 @@ if (!TradingAnalyzer) TradingAnalyzer = {
     Util: {},
     TradingAccount: {},
     Trade: {},
+    MonteCarloSimulation: {},
     Market: {
         Markets: [
             { Name: "E-Mini NASDAQ 100", Symbol: "ES", TickSize: .25, TickValue: 5, InitialMargin: 4620 },
@@ -344,4 +345,59 @@ TradingAnalyzer.TradingAccount.refreshDetails = function (input) {
 
 TradingAnalyzer.Trade.refresh = function (input) {
     $("#tradesGrid").data("kendoGrid").dataSource.read();
+}
+
+TradingAnalyzer.MonteCarloSimulation.showMonteCarloSimulationModal = function (id) {
+    $.ajax({
+        type: "GET",
+        url: abp.appPath + 'MonteCarloSimulations/MonteCarloSimulationModal?id=' + id,
+        success: function (r) {
+            $("#monteCarloSimulationModalWrapper").html(r);
+            TradingAnalyzer.Util.initForm("monteCarloSimulationForm", TradingAnalyzer.MonteCarloSimulation.saveMonteCarloSimulation);
+            TradingAnalyzer.Util.showModalForm("monteCarloSimulationModal", false);
+        },
+        contentType: "application/json"
+    });
+}
+
+TradingAnalyzer.MonteCarloSimulation.tradingAccountChange = function () {
+    var id = this.value();
+
+    //abp.services.app.market.get(id).done(function (market) {
+    //    $("#Timeframe").data("kendoNumericTextBox").value(market.mtt);
+
+    //    var currencyControls = ["EntryPrice", "StopLossPrice", "ProfitTakerPrice", "ExitPrice"];
+
+    //    _.forEach(currencyControls, function (id) {
+    //        $("#" + id).data("kendoNumericTextBox").step(market.tickSize);
+    //    });
+    //});
+}
+
+TradingAnalyzer.MonteCarloSimulation.purge = function () {
+    abp.ui.setBusy('#monteCarloSimulationsGrid');
+    abp.services.app.monteCarloSimulation.purge().done(function () {
+        TradingAnalyzer.MonteCarloSimulation.refresh();
+        abp.ui.clearBusy('#monteCarloSimulationsGrid');
+    });
+}
+
+TradingAnalyzer.MonteCarloSimulation.saveMonteCarloSimulation = function (input) {
+    abp.services.app.monteCarloSimulation.save(input).done(function (reconcileTradingAccount) {
+        TradingAnalyzer.Util.hideModalForm("monteCarloSimulationModal");
+        TradingAnalyzer.MonteCarloSimulation.refresh();
+        //TradingAnalyzer.Log.refresh();
+
+        //if (reconcileTradingAccount) {
+        //    abp.services.app.tradingAccount.reconcile().done(function () {
+        //        TradingAnalyzer.TradingAccount.refreshDetails();
+        //    });
+        //}
+    });
+
+    TradingAnalyzer.Util.hideModalForm("monteCarloSimulationModal");
+}
+
+TradingAnalyzer.MonteCarloSimulation.refresh = function (input) {
+    $("#monteCarloSimulationsGrid").data("kendoGrid").dataSource.read();
 }

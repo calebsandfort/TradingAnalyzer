@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Entities\Dtos\EntityDtoBase.cs" />
     <Compile Include="Entities\Dtos\MarketDto.cs" />
+    <Compile Include="Entities\Dtos\MonteCarloSimulationDto.cs" />
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\TradeDto.cs" />
     <Compile Include="Entities\Dtos\TradingAccountDto.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Entities\Enums\TradeTypes.cs" />
     <Compile Include="Entities\Interfaces\IReconciliable.cs" />
     <Compile Include="Entities\Market.cs" />
+    <Compile Include="Entities\MonteCarloSimulation.cs" />
     <Compile Include="Entities\TradingDirective.cs" />
     <Compile Include="Entities\MarketLogEntry.cs" />
     <Compile Include="Entities\Trade.cs" />

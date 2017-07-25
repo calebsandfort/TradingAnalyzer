@@ -32,5 +32,8 @@ namespace TradingAnalyzer.Entities
 
         [ForeignKey("TradingAccountId")]
         public virtual ICollection<MarketLogEntry> MarketLogEntries { get; set; }
+
+        [ForeignKey("TradingAccountId")]
+        public virtual ICollection<MonteCarloSimulation> MonteCarloSimulations { get; set; }
     }
 }
