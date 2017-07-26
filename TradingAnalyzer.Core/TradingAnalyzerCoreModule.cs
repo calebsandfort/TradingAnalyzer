@@ -4,10 +4,11 @@ using Abp.AutoMapper;
 using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Framework;
+using TradingAnalyzer.Shared;
 
 namespace TradingAnalyzer
 {
-    [DependsOn(typeof(AbpAutoMapperModule))]
+    [DependsOn(typeof(AbpAutoMapperModule), typeof(TradingAnalyzerSharedModule))]
     public class TradingAnalyzerCoreModule : AbpModule
     {
         public override void PreInitialize()
@@ -35,8 +36,10 @@ namespace TradingAnalyzer
                 config.CreateMap<MonteCarloSimulation, MonteCarloSimulationDto>()
                               .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name));
 
-                config.CreateMap<MonteCarloSimulationDto, MonteCarloSimulation>(); 
+                config.CreateMap<MonteCarloSimulationDto, MonteCarloSimulation>();
                 #endregion
+
+                //Configuration.Settings.Providers.Add<MySettingProvider>();
             });
         }
 

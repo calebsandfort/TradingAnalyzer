@@ -13,6 +13,8 @@ using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Shared.SqlExecuter;
 using Abp.BackgroundJobs;
 using TradingAnalyzer.Shared;
+using TradingAnalyzer.BackgroundJobs;
+using TradingAnalyzer.Shared.Dtos;
 
 namespace TradingAnalyzer.Services
 {
@@ -34,13 +36,27 @@ namespace TradingAnalyzer.Services
             if (dto.IsNew)
             {
                 MonteCarloSimulation monteCarloSimulation = dto.MapTo<MonteCarloSimulation>();
-                this._repository.Insert(monteCarloSimulation);
+                int id = this._repository.InsertAndGetId(monteCarloSimulation);
+                this.RunSimulationEnqueue(new MonteCarloSimulationDto() { Id = id });
             }
             else
             {
                 MonteCarloSimulation monteCarloSimulation = this._repository.Get(dto.Id);
                 dto.MapTo(monteCarloSimulation);
             }
+        }
+
+        public void RunSimulationEnqueue(MonteCarloSimulationDto dto)
+        {
+            _backgroundJobManager.Enqueue<RunMonteCarloSimulationBackgroundJob, MonteCarloSimulationDto>(dto);
+        }
+
+        public void RunSimulation(MonteCarloSimulationDto dto)
+        {
+            MonteCarloSimulation sim = _repository.Get(dto.Id);
+            sim.MapTo(dto);
+            List<Trade> sample = this._tradeRepository.GetAll().Where(x => x.TradingAccountId == dto.TradingAccountId && x.ExitReason != TradeExitReasons.None).ToList();
+            dto.Simulate(sample, this._consoleHubProxy);
         }
 
         public List<MonteCarloSimulationDto> GetAll()

@@ -12,6 +12,8 @@ namespace TradingAnalyzer.Services
     public interface IMonteCarloSimulationAppService : IApplicationService
     {
         void Save(MonteCarloSimulationDto dto);
+        void RunSimulationEnqueue(MonteCarloSimulationDto dto);
+        void RunSimulation(MonteCarloSimulationDto dto);
         List<MonteCarloSimulationDto> GetAll();
         void Purge();
     }

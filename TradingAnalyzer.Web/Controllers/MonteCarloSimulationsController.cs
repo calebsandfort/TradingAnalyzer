@@ -17,15 +17,17 @@ namespace TradingAnalyzer.Web.Controllers
 {
     public class MonteCarloSimulationsController : TradingAnalyzerControllerBase
     {
-        readonly IRepository<MonteCarloSimulation> _monteCarloSimulationRepository;
+        readonly IRepository<MonteCarloSimulation> _repository;
+        readonly IRepository<Trade> _tradeRepository;
         readonly IMonteCarloSimulationAppService _monteCarloSimulationAppService;
         readonly ITradingAccountAppService _tradingAccountAppService;
         readonly IObjectMapper _objectMapper;
 
-        public MonteCarloSimulationsController(IRepository<MonteCarloSimulation> monteCarloSimulationRepository,
+        public MonteCarloSimulationsController(IRepository<MonteCarloSimulation> repository, IRepository<Trade> tradeRepository,
             IMonteCarloSimulationAppService monteCarloSimulationAppService, ITradingAccountAppService tradingAccountAppService, IObjectMapper objectMapper)
         {
-            _monteCarloSimulationRepository = monteCarloSimulationRepository;
+            _repository = repository;
+            _tradeRepository = tradeRepository;
             _monteCarloSimulationAppService = monteCarloSimulationAppService;
             _tradingAccountAppService = tradingAccountAppService;
             _objectMapper = objectMapper;
@@ -42,8 +44,8 @@ namespace TradingAnalyzer.Web.Controllers
         {
             DataSourceResult result = new DataSourceResult();
 
-            result.Data = _objectMapper.Map<List<MonteCarloSimulationDto>>(_monteCarloSimulationRepository.GetAll().Where(request.Filters).OrderBy(request.Sorts[0]).ToList());
-            result.Total = _monteCarloSimulationRepository.GetAll().Where(request.Filters).Count();
+            result.Data = _objectMapper.Map<List<MonteCarloSimulationDto>>(_repository.GetAll().Where(request.Filters).OrderBy(request.Sorts[0]).ToList());
+            result.Total = _repository.GetAll().Where(request.Filters).Count();
 
             return new GuerillaLogisticsApiJsonResult(result);
         }
@@ -81,7 +83,7 @@ namespace TradingAnalyzer.Web.Controllers
         {
             if (model != null)
             {
-                this._monteCarloSimulationRepository.Delete(model.Id);
+                this._repository.Delete(model.Id);
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
@@ -96,12 +98,13 @@ namespace TradingAnalyzer.Web.Controllers
             {
                 model.TimeStamp = DateTime.Now;
                 model.TradingAccountId = this._tradingAccountAppService.GetActive().Id;
+                model.NumberOfTradesInSample = this._tradeRepository.GetAll().Count(x => x.TradingAccountId == model.TradingAccountId && x.ExitReason != TradeExitReasons.None);
                 model.NumberOfTradesPerIteration = 30;
                 model.NumberOfIterations = 100;
             }
             else
             {
-                MonteCarloSimulation monteCarloSimulation = this._monteCarloSimulationRepository.Single(x => x.Id == id);
+                MonteCarloSimulation monteCarloSimulation = this._repository.Single(x => x.Id == id);
                 monteCarloSimulation.MapTo(model);
             }
 

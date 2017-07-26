@@ -490,6 +490,7 @@
     <Content Include="Views\Shared\Modals\_MonteCarloSimulationModal.cshtml" />
     <Content Include="Views\MonteCarloSimulations\Index.cshtml" />
     <Content Include="Views\MonteCarloSimulations\_MonteCarloSimulationsGrid.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyIntStatic.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

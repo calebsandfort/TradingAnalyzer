@@ -108,9 +108,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundJobs\BackgoundJobs.cs" />
     <Compile Include="Services\AppServiceBase.cs" />
     <Compile Include="Services\IMarketAppService.cs" />
-    <Compile Include="Services\IMonteCarloAppService.cs" />
+    <Compile Include="Services\IMonteCarloSimulationAppService.cs" />
     <Compile Include="Services\ITradeAppService.cs" />
     <Compile Include="Services\ITradingDayAppService.cs" />
     <Compile Include="Services\ITradingAccountAppService.cs" />
@@ -121,8 +122,8 @@
     <Compile Include="Services\MarketLogEntryAppService.cs">
       <DependentUpon>IMarketLogEntryAppService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services\MonteCarloAppService.cs">
-      <DependentUpon>IMonteCarloAppService.cs</DependentUpon>
+    <Compile Include="Services\MonteCarloSimulationAppService.cs">
+      <DependentUpon>IMonteCarloSimulationAppService.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\TradeAppService.cs">
       <DependentUpon>ITradeAppService.cs</DependentUpon>
@@ -151,6 +152,7 @@
       <Name>TradingAnalyzer.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -131,6 +131,8 @@
     <Compile Include="Entities\TradingDay.cs" />
     <Compile Include="Entities\TradingAccount.cs" />
     <Compile Include="Framework\EnumExtensions.cs" />
+    <Compile Include="Framework\Extensions.cs" />
+    <Compile Include="Framework\MySettingProvider.cs" />
     <Compile Include="Services\IMarketLogEntryDomainService.cs" />
     <Compile Include="Services\MarketLogEntryDomainService.cs" />
     <Compile Include="TradingAnalyzerConsts.cs" />
@@ -140,6 +142,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TradingAnalyzer.Shared\TradingAnalyzer.Shared.csproj">
+      <Project>{38A127CB-FCE6-4278-8A04-A1A683D5370D}</Project>
+      <Name>TradingAnalyzer.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

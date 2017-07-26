@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace TradingAnalyzer.Shared
 {
@@ -20,7 +21,8 @@ namespace TradingAnalyzer.Shared
 
         public void WriteLine(ConsoleWriteLineInput consoleWriteLineInput)
         {
-            var client = new RestClient(this._settingManager.GetSettingValue("Path"));
+            //var client = new RestClient(this._settingManager.GetSettingValue("Path"));
+            var client = new RestClient(ConfigurationManager.AppSettings["Path"]);
             var request = new RestRequest("ConsoleSignalR/WriteLine", Method.POST);
 
             request.RequestFormat = DataFormat.Json;
