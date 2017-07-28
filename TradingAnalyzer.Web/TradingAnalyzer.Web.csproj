@@ -491,6 +491,8 @@
     <Content Include="Views\MonteCarloSimulations\Index.cshtml" />
     <Content Include="Views\MonteCarloSimulations\_MonteCarloSimulationsGrid.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MyIntStatic.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyPercentage.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyDecimal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

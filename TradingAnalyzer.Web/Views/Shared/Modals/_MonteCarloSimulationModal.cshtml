@@ -13,8 +13,20 @@
                     @Html.EditorFor(x => x.NumberOfTradesInSample)
                     @Html.EditorFor(x => x.NumberOfTradesPerIteration)
                     @Html.EditorFor(x => x.NumberOfIterations)
+                    @Html.EditorFor(x => x.CumulativeProfitK)
+                    @Html.EditorFor(x => x.ConsecutiveLossesK)
+                    @Html.EditorFor(x => x.MaxDrawdownK)
+                    @Html.EditorFor(x => x.AccountSize)
+                    @Html.EditorFor(x => x.RuinPoint)
+                    @Html.EditorFor(x => x.MaxDrawdownMultiple)
                     @Html.HiddenFor(x => x.Id)
                     @Html.HiddenFor(x => x.TimeStamp)
+                    @Html.HiddenFor(x => x.CumulativeProfit)
+                    @Html.HiddenFor(x => x.TradingEdge)
+                    @Html.HiddenFor(x => x.ConsecutiveLosses)
+                    @Html.HiddenFor(x => x.MaxDrawdown)
+                    @Html.HiddenFor(x => x.OneContractFunds)
+                    @Html.HiddenFor(x => x.MaxContracts)
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

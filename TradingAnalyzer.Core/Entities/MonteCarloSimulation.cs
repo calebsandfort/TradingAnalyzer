@@ -12,12 +12,22 @@ namespace TradingAnalyzer.Entities
     [Table("MonteCarloSimulations")]
     public class MonteCarloSimulation : EntityBase
     {
-        [DataType(DataType.DateTime)]
         public DateTime TimeStamp { get; set; }
-
         public int NumberOfTradesInSample { get; set; }
         public int NumberOfTradesPerIteration { get; set; }
         public int NumberOfIterations { get; set; }
+        public Decimal CumulativeProfitK { get; set; }
+        public Decimal CumulativeProfit { get; set; }
+        public bool TradingEdge { get; set; }
+        public Decimal ConsecutiveLossesK { get; set; }
+        public int ConsecutiveLosses { get; set; }
+        public Decimal MaxDrawdownK { get; set; }
+        public Decimal MaxDrawdown { get; set; }
+        public Decimal AccountSize { get; set; }
+        public Decimal RuinPoint { get; set; }
+        public Decimal MaxDrawdownMultiple { get; set; }
+        public Decimal OneContractFunds { get; set; }
+        public int MaxContracts { get; set; }
 
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }

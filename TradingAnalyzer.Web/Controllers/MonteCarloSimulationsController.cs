@@ -19,15 +19,17 @@ namespace TradingAnalyzer.Web.Controllers
     {
         readonly IRepository<MonteCarloSimulation> _repository;
         readonly IRepository<Trade> _tradeRepository;
+        readonly IRepository<Market> _marketRepository;
         readonly IMonteCarloSimulationAppService _monteCarloSimulationAppService;
         readonly ITradingAccountAppService _tradingAccountAppService;
         readonly IObjectMapper _objectMapper;
 
-        public MonteCarloSimulationsController(IRepository<MonteCarloSimulation> repository, IRepository<Trade> tradeRepository,
+        public MonteCarloSimulationsController(IRepository<MonteCarloSimulation> repository, IRepository<Trade> tradeRepository, IRepository<Market> marketRepository,
             IMonteCarloSimulationAppService monteCarloSimulationAppService, ITradingAccountAppService tradingAccountAppService, IObjectMapper objectMapper)
         {
             _repository = repository;
             _tradeRepository = tradeRepository;
+            _marketRepository = marketRepository;
             _monteCarloSimulationAppService = monteCarloSimulationAppService;
             _tradingAccountAppService = tradingAccountAppService;
             _objectMapper = objectMapper;
@@ -96,11 +98,20 @@ namespace TradingAnalyzer.Web.Controllers
 
             if (id == 0)
             {
+                TradingAccountDto tradingAccount = this._tradingAccountAppService.GetActive();
+                List<Market> markets = this._marketRepository.GetAllList();
+
                 model.TimeStamp = DateTime.Now;
-                model.TradingAccountId = this._tradingAccountAppService.GetActive().Id;
+                model.TradingAccountId = tradingAccount.Id;
                 model.NumberOfTradesInSample = this._tradeRepository.GetAll().Count(x => x.TradingAccountId == model.TradingAccountId && x.ExitReason != TradeExitReasons.None);
                 model.NumberOfTradesPerIteration = 30;
                 model.NumberOfIterations = 100;
+                model.CumulativeProfitK = .95m;
+                model.ConsecutiveLossesK = 1m;
+                model.MaxDrawdownK = .99m;
+                model.AccountSize = tradingAccount.InitialCapital;
+                model.RuinPoint = markets.Max(x => x.InitialMargin) + 10m;
+                model.MaxDrawdownMultiple = 2m;
             }
             else
             {

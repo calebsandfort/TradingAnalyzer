@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201707252238055_AddMonteCarloSimulation.Designer.cs">
       <DependentUpon>201707252238055_AddMonteCarloSimulation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707271626042_MoreMonteCarloFields.cs" />
+    <Compile Include="Migrations\201707271626042_MoreMonteCarloFields.Designer.cs">
+      <DependentUpon>201707271626042_MoreMonteCarloFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707252238055_AddMonteCarloSimulation.resx">
       <DependentUpon>201707252238055_AddMonteCarloSimulation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707271626042_MoreMonteCarloFields.resx">
+      <DependentUpon>201707271626042_MoreMonteCarloFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

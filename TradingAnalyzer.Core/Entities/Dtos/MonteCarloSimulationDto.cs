@@ -27,46 +27,51 @@ namespace TradingAnalyzer.Entities.Dtos
         public int NumberOfIterations { get; set; }
 
         [UIHint("MyPercentage")]
-        [Display(Name = "Cumulative Profit K")]
+        [Display(Name = "Cume Profit K")]
         public Decimal CumulativeProfitK { get; set; }
 
-        [Display(Name = "Cumulative Profit")]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Cume Profit")]
         public Decimal CumulativeProfit { get; set; }
 
         [Display(Name = "Trading Edge")]
         public bool TradingEdge { get; set; }
 
         [UIHint("MyPercentage")]
-        [Display(Name = "Consecutive Losses K")]
+        [Display(Name = "Cons Losses K")]
         public Decimal ConsecutiveLossesK { get; set; }
 
-        [Display(Name = "Consecutive Losses")]
+        [Display(Name = "Cons Losses")]
         public int ConsecutiveLosses { get; set; }
 
         [UIHint("MyPercentage")]
-        [Display(Name = "Max Drawdown K")]
+        [Display(Name = "Max DD K")]
         public Decimal MaxDrawdownK { get; set; }
 
-        [Display(Name = "Max Drawdown")]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Max DD")]
         public Decimal MaxDrawdown { get; set; }
 
+        [DataType(DataType.Currency)]
         [UIHint("MyCurrency")]
         [Display(Name = "Account Size")]
         public Decimal AccountSize { get; set; }
 
+        [DataType(DataType.Currency)]
         [UIHint("MyCurrency")]
         [Display(Name = "Ruin Point")]
         public Decimal RuinPoint { get; set; }
 
         [UIHint("MyDecimal")]
-        [Display(Name = "Max Drawdown Multiple")]
+        [Display(Name = "Max DD Mult")]
         public Decimal MaxDrawdownMultiple { get; set; }
 
+        [DataType(DataType.Currency)]
         [UIHint("MyCurrency")]
         [Display(Name = "One Contract Funds")]
         public Decimal OneContractFunds { get; set; }
 
-        [Display(Name = "MaxContracts")]
+        [Display(Name = "Max Contracts")]
         public int MaxContracts { get; set; }
 
         [Display(Name = "Account")]
@@ -75,7 +80,7 @@ namespace TradingAnalyzer.Entities.Dtos
         [Display(Name = "Account")]
         public virtual int TradingAccountId { get; set; }
 
-        public void Simulate(List<Trade> sample, IConsoleHubProxy consoleHubProxy)
+        public void Simulate(List<Trade> sample, List<Market> markets, IConsoleHubProxy consoleHubProxy)
         {
             Random random = new Random(Clock.Now.Millisecond);
             int sampleSize = sample.Count;
@@ -91,7 +96,7 @@ namespace TradingAnalyzer.Entities.Dtos
                     MonteCarloSimulationTrade trade = new MonteCarloSimulationTrade { NetProfit = sample[random.Next(sampleSize)].ProfitLossPerContract };
                     iteration.Trades.Add(trade);
                     trade.CumulativeProfit = iteration.Trades.Sum(x => x.NetProfit);
-                    trade.Drawdown = trade.NetProfit - iteration.Trades.Max(x => x.CumulativeProfit);
+                    trade.Drawdown = trade.CumulativeProfit - iteration.Trades.Max(x => x.CumulativeProfit);
 
                     if(trade.NetProfit < 0)
                     {
@@ -117,10 +122,10 @@ namespace TradingAnalyzer.Entities.Dtos
 
             this.ConsecutiveLosses = Extensions.Percentile<int>(iterations.Select(x => x.ConsecutiveLosses).ToList(), this.ConsecutiveLossesK);
             this.MaxDrawdown = Extensions.Percentile<Decimal>(iterations.Select(x => x.MaxDrawdown).ToList(), 1.0m - this.MaxDrawdownK);
+            this.OneContractFunds = this.RuinPoint + (this.MaxDrawdownMultiple * Math.Abs(this.MaxDrawdown));
+            this.MaxContracts = (int)Math.Floor(this.AccountSize/this.OneContractFunds);
         }
     }
-
-
 
     public class MonteCarloSimulationIteration
     {

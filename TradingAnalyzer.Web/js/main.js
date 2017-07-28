@@ -67,6 +67,10 @@ if (!TradingAnalyzer) TradingAnalyzer = {
 
 $(function () {
     $("body").on("click", ".expandScreenshot", TradingAnalyzer.Util.expandScreenshotClick);
+
+    $("#marketsModal").on("shown.bs.modal", function (e) {
+        $("#marketsGrid").data("kendoGrid").refresh();
+    });
 });
 
 $(document).ready(function () {
@@ -386,6 +390,9 @@ TradingAnalyzer.MonteCarloSimulation.saveMonteCarloSimulation = function (input)
     abp.services.app.monteCarloSimulation.save(input).done(function (reconcileTradingAccount) {
         TradingAnalyzer.Util.hideModalForm("monteCarloSimulationModal");
         TradingAnalyzer.MonteCarloSimulation.refresh();
+
+        $("#consoleModal").modal("show");
+
         //TradingAnalyzer.Log.refresh();
 
         //if (reconcileTradingAccount) {

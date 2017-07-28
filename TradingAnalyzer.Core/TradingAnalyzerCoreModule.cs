@@ -36,7 +36,8 @@ namespace TradingAnalyzer
                 config.CreateMap<MonteCarloSimulation, MonteCarloSimulationDto>()
                               .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name));
 
-                config.CreateMap<MonteCarloSimulationDto, MonteCarloSimulation>();
+                config.CreateMap<MonteCarloSimulationDto, MonteCarloSimulation>()
+                    .ForMember(u => u.TradingAccount, options => options.Ignore());
                 #endregion
 
                 //Configuration.Settings.Providers.Add<MySettingProvider>();

@@ -20,16 +20,19 @@ namespace TradingAnalyzer.Migrations.SeedData
 
         public void Create()
         {
-            _context.Markets.AddOrUpdate(
-                    x => x.Symbol,
-                    new Market { Name = "E-Mini NASDAQ 100", Symbol = "ES", TickSize = .25m, TickValue = 5, InitialMargin = 4620 },
-                    new Market { Name = "E-Mini S&P 500", Symbol = "NQ", TickSize = .25m, TickValue = 12.50m, InitialMargin = 4290 },
-                    new Market { Name = "E-Mini Dow", Symbol = "YM", TickSize = 1, TickValue = 5, InitialMargin = 3905 },
-                    new Market { Name = "Gold", Symbol = "GC", TickSize = .10m, TickValue = 10, InitialMargin = 4345 },
-                    new Market { Name = "Oil", Symbol = "CL", TickSize = .01m, TickValue = 10, InitialMargin = 2750 }
-                );
+            if (_context.Markets.Count() > 0)
+            {
+                _context.Markets.AddOrUpdate(
+                            x => x.Symbol,
+                            new Market { Name = "E-Mini NASDAQ 100", Symbol = "NQ", TickSize = .25m, TickValue = 5, InitialMargin = 4290, MTT = 10 },
+                            new Market { Name = "E-Mini S&P 500", Symbol = "ES", TickSize = .25m, TickValue = 12.50m, InitialMargin = 4620, MTT = 5 },
+                            new Market { Name = "E-Mini Dow", Symbol = "YM", TickSize = 1, TickValue = 5, InitialMargin = 3905, MTT = 5 },
+                            new Market { Name = "Gold", Symbol = "GC", TickSize = .10m, TickValue = 10, InitialMargin = 4345, MTT = 5 },
+                            new Market { Name = "Oil", Symbol = "CL", TickSize = .01m, TickValue = 10, InitialMargin = 2750, MTT = 5 }
+                        );
 
-            _context.SaveChanges();
+                _context.SaveChanges(); 
+            }
         }
     }
 }

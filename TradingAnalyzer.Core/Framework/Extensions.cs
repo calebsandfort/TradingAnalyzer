@@ -12,7 +12,7 @@ namespace TradingAnalyzer.Framework
         {
             data = data.OrderBy(x => x).ToList();
             int index = ((int)Math.Ceiling(k * data.Count)) - 1;
-
+            if (index == 0) index = 1;
             return data.Take(index).Last();
         }
     }

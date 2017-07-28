@@ -22,13 +22,15 @@ namespace TradingAnalyzer.Services
     {
         public readonly IRepository<MonteCarloSimulation> _repository;
         public readonly IRepository<Trade> _tradeRepository;
+        public readonly IRepository<Market> _marketRepository;
 
         public MonteCarloSimulationAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper,
-            IRepository<MonteCarloSimulation> repository, IRepository<Trade> tradeRepository)
+            IRepository<MonteCarloSimulation> repository, IRepository<Trade> tradeRepository, IRepository<Market> marketRepository)
             : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
             this._repository = repository;
             this._tradeRepository = tradeRepository;
+            this._marketRepository = marketRepository;
         }
 
         public void Save(MonteCarloSimulationDto dto)
@@ -56,7 +58,9 @@ namespace TradingAnalyzer.Services
             MonteCarloSimulation sim = _repository.Get(dto.Id);
             sim.MapTo(dto);
             List<Trade> sample = this._tradeRepository.GetAll().Where(x => x.TradingAccountId == dto.TradingAccountId && x.ExitReason != TradeExitReasons.None).ToList();
-            dto.Simulate(sample, this._consoleHubProxy);
+            List<Market> markets = this._marketRepository.GetAllList();
+            dto.Simulate(sample, markets, this._consoleHubProxy);
+            dto.MapTo(sim);
         }
 
         public List<MonteCarloSimulationDto> GetAll()
