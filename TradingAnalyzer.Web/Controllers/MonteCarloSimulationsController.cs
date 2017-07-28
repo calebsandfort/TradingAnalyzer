@@ -105,7 +105,7 @@ namespace TradingAnalyzer.Web.Controllers
                 model.TradingAccountId = tradingAccount.Id;
                 model.NumberOfTradesInSample = this._tradeRepository.GetAll().Count(x => x.TradingAccountId == model.TradingAccountId && x.ExitReason != TradeExitReasons.None);
                 model.NumberOfTradesPerIteration = 30;
-                model.NumberOfIterations = 100;
+                model.NumberOfIterations = 1000;
                 model.CumulativeProfitK = .95m;
                 model.ConsecutiveLossesK = 1m;
                 model.MaxDrawdownK = .99m;
