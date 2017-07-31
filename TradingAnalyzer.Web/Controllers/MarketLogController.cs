@@ -45,7 +45,7 @@ namespace TradingAnalyzer.Web.Controllers
             //result.Data = _objectMapper.Map<List<MarketLogEntryDto>>(_movieRepository.GetAllIncluding(x => x.StatLines.Select(y => y.Participant)).Where(request.Filters).Where(todayFunc).OrderBy(request.Sorts[0]).ToList());
             //result.Total = _marketLogEntryRepository.GetAll().Where(request.Filters).Where(todayFunc).Count();
 
-            result.Data = _objectMapper.Map<List<MarketLogEntryDto>>(_marketLogEntryRepository.GetAllIncluding(x => x.Market).Where(x => x.TradingAccount.Active).OrderByDescending(x => x.TimeStamp).ToList());
+            result.Data = _objectMapper.Map<List<MarketLogEntryDto>>(_marketLogEntryRepository.GetAllIncluding(x => x.Market).Where(x => x.TradingAccount.Active).OrderByDescending(x => x.TimeStamp).ThenByDescending(x => x.Id).Take(100).ToList());
 
             return new GuerillaLogisticsApiJsonResult(result);
         }
