@@ -28,6 +28,7 @@ namespace TradingAnalyzer.Entities
         public Decimal MaxDrawdownMultiple { get; set; }
         public Decimal OneContractFunds { get; set; }
         public int MaxContracts { get; set; }
+        public String MarketMaxContractsJson { get; set; }
 
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }

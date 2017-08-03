@@ -35,7 +35,7 @@ namespace TradingAnalyzer.Web.Controllers
 
         public ActionResult GetMarkets()
         {
-            return new GuerillaLogisticsApiJsonResult(_marketAppService.GetAll());
+            return new GuerillaLogisticsApiJsonResult(_marketAppService.GetAllActive());
         }
 
         #region Markets_Read

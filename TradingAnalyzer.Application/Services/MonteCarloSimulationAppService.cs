@@ -58,7 +58,7 @@ namespace TradingAnalyzer.Services
             MonteCarloSimulation sim = _repository.Get(dto.Id);
             sim.MapTo(dto);
             List<Trade> sample = this._tradeRepository.GetAll().Where(x => x.TradingAccountId == dto.TradingAccountId && x.ExitReason != TradeExitReasons.None).ToList();
-            List<Market> markets = this._marketRepository.GetAllList();
+            List<Market> markets = this._marketRepository.GetAll().Where(x => x.Active).ToList();
             dto.Simulate(sample, markets, this._consoleHubProxy);
             dto.MapTo(sim);
         }

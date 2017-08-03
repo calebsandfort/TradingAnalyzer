@@ -74,11 +74,18 @@ namespace TradingAnalyzer.Entities.Dtos
         [Display(Name = "Max Contracts")]
         public int MaxContracts { get; set; }
 
+        public List<MarketMaxContracts> MarketMaxContractsList { get; set; }
+
         [Display(Name = "Account")]
         public String TradingAccount { get; set; }
         [UIHint("TradingAccount")]
         [Display(Name = "Account")]
         public virtual int TradingAccountId { get; set; }
+
+        public MonteCarloSimulationDto()
+        {
+            this.MarketMaxContractsList = new List<MarketMaxContracts>();
+        }
 
         public void Simulate(List<Trade> sample, List<Market> markets, IConsoleHubProxy consoleHubProxy)
         {
@@ -124,6 +131,11 @@ namespace TradingAnalyzer.Entities.Dtos
             this.MaxDrawdown = Extensions.Percentile<Decimal>(iterations.Select(x => x.MaxDrawdown).ToList(), 1.0m - this.MaxDrawdownK);
             this.OneContractFunds = this.RuinPoint + (this.MaxDrawdownMultiple * Math.Abs(this.MaxDrawdown));
             this.MaxContracts = (int)Math.Floor(this.AccountSize/this.OneContractFunds);
+
+            foreach(Market market in markets)
+            {
+                this.MarketMaxContractsList.Add(new MarketMaxContracts { Symbol = market.Symbol, Size = (int)Math.Floor(this.AccountSize / (market.InitialMargin + 10m + (this.MaxDrawdownMultiple * Math.Abs(this.MaxDrawdown)))) });
+            }
         }
     }
 
@@ -147,5 +159,11 @@ namespace TradingAnalyzer.Entities.Dtos
         public Decimal Drawdown { get; set; }
         public int ConsecutiveLosses { get; set; }
 
+    }
+
+    public class MarketMaxContracts
+    {
+        public String Symbol { get; set; }
+        public int Size { get; set; }
     }
 }

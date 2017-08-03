@@ -5,6 +5,8 @@ using TradingAnalyzer.Entities;
 using TradingAnalyzer.Entities.Dtos;
 using TradingAnalyzer.Framework;
 using TradingAnalyzer.Shared;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace TradingAnalyzer
 {
@@ -34,10 +36,12 @@ namespace TradingAnalyzer
 
                 #region MonteCarloSimulation
                 config.CreateMap<MonteCarloSimulation, MonteCarloSimulationDto>()
-                              .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name));
+                              .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name))
+                              .ForMember(u => u.MarketMaxContractsList, options => options.MapFrom(input => JsonConvert.DeserializeObject<List<MarketMaxContracts>>(input.MarketMaxContractsJson)));
 
                 config.CreateMap<MonteCarloSimulationDto, MonteCarloSimulation>()
-                    .ForMember(u => u.TradingAccount, options => options.Ignore());
+                    .ForMember(u => u.TradingAccount, options => options.Ignore())
+                    .ForMember(u => u.MarketMaxContractsJson, options => options.MapFrom(input => JsonConvert.SerializeObject(input.MarketMaxContractsList)));
                 #endregion
 
                 //Configuration.Settings.Providers.Add<MySettingProvider>();

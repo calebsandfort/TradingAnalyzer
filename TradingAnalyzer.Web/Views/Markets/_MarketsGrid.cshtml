@@ -9,6 +9,7 @@
         columns.Bound(x => x.InitialMargin).Width(100);
         columns.Bound(x => x.PointValue).Width(100);
         columns.Bound(x => x.MTT).Width(75);
+        columns.Bound(x => x.Active).Width(75).ClientTemplate("#= Active ? 'Yes' : 'No' #");
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
 
     })

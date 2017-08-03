@@ -36,6 +36,11 @@ namespace TradingAnalyzer.Services
             return _objectMapper.Map<List<MarketDto>>(_repository.GetAll().OrderBy(x => x.Symbol).ToList());
         }
 
+        public List<MarketDto> GetAllActive()
+        {
+            return _objectMapper.Map<List<MarketDto>>(_repository.GetAll().Where(x => x.Active).OrderBy(x => x.Symbol).ToList());
+        }
+
         public void Save(MarketDto dto)
         {
             if (dto.IsNew)

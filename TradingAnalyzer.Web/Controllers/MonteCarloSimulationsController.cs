@@ -99,7 +99,7 @@ namespace TradingAnalyzer.Web.Controllers
             if (id == 0)
             {
                 TradingAccountDto tradingAccount = this._tradingAccountAppService.GetActive();
-                List<Market> markets = this._marketRepository.GetAllList();
+                List<Market> markets = this._marketRepository.GetAll().Where(x => x.Active).ToList();
 
                 model.TimeStamp = DateTime.Now;
                 model.TradingAccountId = tradingAccount.Id;
@@ -109,8 +109,8 @@ namespace TradingAnalyzer.Web.Controllers
                 model.CumulativeProfitK = .95m;
                 model.ConsecutiveLossesK = 1m;
                 model.MaxDrawdownK = .99m;
-                model.AccountSize = tradingAccount.InitialCapital;
-                model.RuinPoint = markets.Max(x => x.InitialMargin) + 10m;
+                model.AccountSize = tradingAccount.CurrentCapital;
+                model.RuinPoint = markets.Average(x => x.InitialMargin) + 10m;
                 model.MaxDrawdownMultiple = 2m;
             }
             else

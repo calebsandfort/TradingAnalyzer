@@ -154,6 +154,14 @@
     <Compile Include="Migrations\201707271626042_MoreMonteCarloFields.Designer.cs">
       <DependentUpon>201707271626042_MoreMonteCarloFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707311646181_MarketActiveField.cs" />
+    <Compile Include="Migrations\201707311646181_MarketActiveField.Designer.cs">
+      <DependentUpon>201707311646181_MarketActiveField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707311849502_AddMarketMaxContractsList.cs" />
+    <Compile Include="Migrations\201707311849502_AddMarketMaxContractsList.Designer.cs">
+      <DependentUpon>201707311849502_AddMarketMaxContractsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -198,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707271626042_MoreMonteCarloFields.resx">
       <DependentUpon>201707271626042_MoreMonteCarloFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707311646181_MarketActiveField.resx">
+      <DependentUpon>201707311646181_MarketActiveField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707311849502_AddMarketMaxContractsList.resx">
+      <DependentUpon>201707311849502_AddMarketMaxContractsList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

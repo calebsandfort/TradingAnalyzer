@@ -137,6 +137,14 @@
                         <p class="form-control-static"><b>#:MaxContracts# contracts</b></p>
                     </div>
                 </div>
+                # for (var i = 0; i < MarketMaxContractsList.length; i++) { #
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Trade at most</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static"><b>#:MarketMaxContractsList[i].Size# #:MarketMaxContractsList[i].Symbol# contracts</b></p>
+                    </div>
+                </div>
+                # } #
             </div>
         </div>
     </div>

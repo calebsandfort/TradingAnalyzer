@@ -353,6 +353,9 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="PublishSettings\TradingAnalyzer.PublishSettings" />
+    <None Include="Properties\PublishProfiles\TradingAnalyzer - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\TradingAnalyzer - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

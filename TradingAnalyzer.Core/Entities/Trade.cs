@@ -77,7 +77,7 @@ namespace TradingAnalyzer.Entities
         public void Reconcile()
         {
             this.Commissions = this.Size * 6.15m;
-            this.ProfitLoss = (((this.TradeType == TradeTypes.Long ? this.ExitPrice - this.EntryPrice : this.EntryPrice - this.ExitPrice)/this.Market.TickSize) * this.Market.TickValue) - this.Commissions;
+            this.ProfitLoss = this.Size * ((((this.TradeType == TradeTypes.Long ? this.ExitPrice - this.EntryPrice : this.EntryPrice - this.ExitPrice)/this.Market.TickSize) * this.Market.TickValue)) - this.Commissions;
             this.ProfitLossPerContract = this.ProfitLoss / this.Size;
         }
     }

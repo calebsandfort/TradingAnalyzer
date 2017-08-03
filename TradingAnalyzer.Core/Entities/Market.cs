@@ -24,6 +24,8 @@ namespace TradingAnalyzer.Entities
 
         public int MTT { get; set; }
 
+        public bool Active { get; set; }
+
         [DataType(DataType.Currency)]
         [NotMapped]
         public Decimal PointValue

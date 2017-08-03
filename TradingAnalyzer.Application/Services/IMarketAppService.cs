@@ -12,6 +12,7 @@ namespace TradingAnalyzer.Services
     public interface IMarketAppService : IApplicationService
     {
         List<MarketDto> GetAll();
+        List<MarketDto> GetAllActive();
         MarketDto Get(int id);
         void Save(MarketDto dto);
     }
