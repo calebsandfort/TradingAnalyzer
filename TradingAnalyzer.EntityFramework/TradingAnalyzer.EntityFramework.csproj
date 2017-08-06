@@ -162,6 +162,22 @@
     <Compile Include="Migrations\201707311849502_AddMarketMaxContractsList.Designer.cs">
       <DependentUpon>201707311849502_AddMarketMaxContractsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708040446320_AddScreenshot.cs" />
+    <Compile Include="Migrations\201708040446320_AddScreenshot.Designer.cs">
+      <DependentUpon>201708040446320_AddScreenshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708050521587_AddScreenshotRelationships.cs" />
+    <Compile Include="Migrations\201708050521587_AddScreenshotRelationships.Designer.cs">
+      <DependentUpon>201708050521587_AddScreenshotRelationships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708050523399_AddScreenshotRelationships2.cs" />
+    <Compile Include="Migrations\201708050523399_AddScreenshotRelationships2.Designer.cs">
+      <DependentUpon>201708050523399_AddScreenshotRelationships2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708060405346_RemoveOldScreenshotFields.cs" />
+    <Compile Include="Migrations\201708060405346_RemoveOldScreenshotFields.Designer.cs">
+      <DependentUpon>201708060405346_RemoveOldScreenshotFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -212,6 +228,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707311849502_AddMarketMaxContractsList.resx">
       <DependentUpon>201707311849502_AddMarketMaxContractsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708040446320_AddScreenshot.resx">
+      <DependentUpon>201708040446320_AddScreenshot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708050521587_AddScreenshotRelationships.resx">
+      <DependentUpon>201708050521587_AddScreenshotRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708050523399_AddScreenshotRelationships2.resx">
+      <DependentUpon>201708050523399_AddScreenshotRelationships2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708060405346_RemoveOldScreenshotFields.resx">
+      <DependentUpon>201708060405346_RemoveOldScreenshotFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

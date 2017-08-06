@@ -56,6 +56,12 @@
       <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=10.4.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.4.0\lib\net\JetBrains.Annotations.dll</HintPath>
       <Private>True</Private>
@@ -110,6 +116,7 @@
   <ItemGroup>
     <Compile Include="Entities\Dtos\EntityDtoBase.cs" />
     <Compile Include="Entities\Dtos\MarketDto.cs" />
+    <Compile Include="Entities\Dtos\ScreenshotDto.cs" />
     <Compile Include="Entities\Dtos\MonteCarloSimulationDto.cs" />
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\TradeDto.cs" />
@@ -124,6 +131,7 @@
     <Compile Include="Entities\Enums\TradeTypes.cs" />
     <Compile Include="Entities\Interfaces\IReconciliable.cs" />
     <Compile Include="Entities\Market.cs" />
+    <Compile Include="Entities\Screenshot.cs" />
     <Compile Include="Entities\MonteCarloSimulation.cs" />
     <Compile Include="Entities\TradingDirective.cs" />
     <Compile Include="Entities\MarketLogEntry.cs" />

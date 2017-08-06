@@ -53,7 +53,7 @@ namespace TradingAnalyzer.Services
                 MarketLogEntry tradeEnterLogEntry = new MarketLogEntry();
                 tradeEnterLogEntry.MarketId = trade.MarketId;
                 tradeEnterLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeEnter;
-                if (!String.IsNullOrEmpty(trade.EntryScreenshot)) tradeEnterLogEntry.Screenshot = trade.EntryScreenshot;
+                if (trade.EntryScreenshotDbId.HasValue) tradeEnterLogEntry.ScreenshotDbId = trade.EntryScreenshotDbId;
                 tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C}<br/>{3}", trade.TradeType == TradeTypes.Long ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
                 tradeEnterLogEntry.TimeStamp = trade.EntryDate;
                 tradeEnterLogEntry.TradingAccountId = trade.TradingAccountId;
@@ -87,7 +87,7 @@ namespace TradingAnalyzer.Services
                 MarketLogEntry tradeExitLogEntry = new MarketLogEntry();
                 tradeExitLogEntry.MarketId = trade.MarketId;
                 tradeExitLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeExit;
-                if (!String.IsNullOrEmpty(trade.ExitScreenshot)) tradeExitLogEntry.Screenshot = trade.ExitScreenshot;
+                if (trade.ExitScreenshotDbId.HasValue) tradeExitLogEntry.ScreenshotDbId = trade.ExitScreenshotDbId;
                 tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C}, P/L: {4:C}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.Long ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
                 tradeExitLogEntry.TimeStamp = trade.ExitDate.Value;
                 tradeExitLogEntry.TradingAccountId = trade.TradingAccountId;

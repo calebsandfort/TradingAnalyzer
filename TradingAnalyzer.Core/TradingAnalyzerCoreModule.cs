@@ -21,7 +21,9 @@ namespace TradingAnalyzer
                 config.CreateMap<Trade, TradeDto>()
                               .ForMember(u => u.Market, options => options.MapFrom(input => input.Market.Symbol))
                               .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name))
-                              .ForMember(u => u.EntrySetups, options => options.MapFrom(input => EnumExtensions.FlaggedEnumToList<TradingSetups>(input.EntrySetups)));
+                              .ForMember(u => u.EntrySetups, options => options.MapFrom(input => EnumExtensions.FlaggedEnumToList<TradingSetups>(input.EntrySetups)))
+                              .ForMember(u => u.EntryScreenshotDbId, options => options.MapFrom(input => input.EntryScreenshotDbId.HasValue ? input.EntryScreenshotDbId.Value : 0))
+                              .ForMember(u => u.ExitScreenshotDbId, options => options.MapFrom(input => input.ExitScreenshotDbId.HasValue ? input.ExitScreenshotDbId.Value : 0));
 
                 config.CreateMap<TradeDto, Trade>()
                       .ForMember(u => u.EntrySetups, options => options.MapFrom(input => EnumExtensions.ListToFlaggedEnum<TradingSetups>(input.EntrySetups)));
@@ -29,7 +31,8 @@ namespace TradingAnalyzer
 
                 #region MarketLogEntry
                 config.CreateMap<MarketLogEntry, MarketLogEntryDto>()
-                              .ForMember(u => u.Market, options => options.MapFrom(input => input.Market.Symbol));
+                              .ForMember(u => u.Market, options => options.MapFrom(input => input.Market.Symbol))
+                              .ForMember(u => u.ScreenshotDbId, options => options.MapFrom(input => input.ScreenshotDbId.HasValue ? input.ScreenshotDbId.Value : 0));
 
                 config.CreateMap<MarketLogEntryDto, MarketLogEntry>();
                 #endregion

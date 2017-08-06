@@ -416,6 +416,7 @@
     <Compile Include="Controllers\MarketsController.cs" />
     <Compile Include="Controllers\MarketLogController.cs" />
     <Compile Include="Controllers\MonteCarloSimulationsController.cs" />
+    <Compile Include="Controllers\ScreenshotsController.cs" />
     <Compile Include="Controllers\TradesController.cs" />
     <Compile Include="Controllers\TradingAccountsController.cs" />
     <Compile Include="Controllers\ViewRendererController.cs" />
@@ -527,6 +528,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Screenshots\" />
     <Folder Include="Views\ViewRenderer\" />
   </ItemGroup>
   <ItemGroup>

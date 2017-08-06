@@ -21,7 +21,7 @@ namespace TradingAnalyzer.Entities.Dtos
         {
             get
             {
-                return !String.IsNullOrEmpty(this.Screenshot);
+                return this.ScreenshotDbId > 0;
             }
         }
 
@@ -33,6 +33,8 @@ namespace TradingAnalyzer.Entities.Dtos
 
         public String Market { get; set; }
         public virtual int MarketId { get; set; }
+
+        public virtual int ScreenshotDbId { get; set; }
 
     }
 }

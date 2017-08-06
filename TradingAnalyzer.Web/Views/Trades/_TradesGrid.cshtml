@@ -87,7 +87,7 @@
                     <label class="col-sm-3 control-label" for="form-group-input">Entry Ss</label>
                     <div class="col-sm-7">
                         #if(ShowEntryScreenshot){#
-                        <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src="#:EntryScreenshot#" />
+                        <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src='@Url.Content("~/Screenshots/Screenshot/")#:EntryScreenshotDbId#' />
                         #}#
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <label class="col-sm-3 control-label" for="form-group-input">Exit Ss</label>
                     <div class="col-sm-7">
                         #if(ShowExitScreenshot){#
-                        <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src="#:ExitScreenshot#" />
+                        <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src='@Url.Content("~/Screenshots/Screenshot/")#:EntryScreenshotDbId#' />
                         #}#
                     </div>
                 </div>

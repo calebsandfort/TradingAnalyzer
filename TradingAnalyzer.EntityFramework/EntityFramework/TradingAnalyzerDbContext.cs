@@ -14,6 +14,7 @@ namespace TradingAnalyzer.EntityFramework
         public virtual IDbSet<TradingDirective> TradingDirectives { get; set; }
         public virtual IDbSet<Market> Markets { get; set; }
         public virtual IDbSet<MonteCarloSimulation> MonteCarloSimulations { get; set; }
+        public virtual IDbSet<Screenshot> Screenshots { get; set; }
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }
@@ -50,6 +51,17 @@ namespace TradingAnalyzer.EntityFramework
          : base(existingConnection, contextOwnsConnection)
         {
 
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Trade>().HasOptional(m => m.EntryScreenshotDb)
+                                 .WithMany(m => m.EntryTrades).HasForeignKey(m => m.EntryScreenshotDbId);
+            modelBuilder.Entity<Trade>().HasOptional(m => m.ExitScreenshotDb)
+                                 .WithMany(m => m.ExitTrades).HasForeignKey(m => m.ExitScreenshotDbId);
+            modelBuilder.Entity<MarketLogEntry>().HasOptional(m => m.ScreenshotDb)
+                                 .WithMany(m => m.MarketLogEntries).HasForeignKey(m => m.ScreenshotDbId);
         }
     }
 }

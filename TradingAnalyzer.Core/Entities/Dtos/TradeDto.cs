@@ -69,7 +69,7 @@ namespace TradingAnalyzer.Entities.Dtos
         {
             get
             {
-                return !String.IsNullOrEmpty(this.EntryScreenshot);
+                return this.EntryScreenshotDbId > 0;
             }
         }
 
@@ -122,7 +122,7 @@ namespace TradingAnalyzer.Entities.Dtos
         {
             get
             {
-                return !String.IsNullOrEmpty(this.ExitScreenshot);
+                return this.ExitScreenshotDbId > 0;
             }
         }
 
@@ -148,5 +148,8 @@ namespace TradingAnalyzer.Entities.Dtos
         public int TradingAccountId { get; set; }
 
         public int TradingDayId { get; set; }
+
+        public virtual int EntryScreenshotDbId { get; set; }
+        public virtual int ExitScreenshotDbId { get; set; }
     }
 }

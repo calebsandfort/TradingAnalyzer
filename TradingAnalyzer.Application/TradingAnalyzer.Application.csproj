@@ -112,6 +112,7 @@
     <Compile Include="Services\AppServiceBase.cs" />
     <Compile Include="Services\IMarketAppService.cs" />
     <Compile Include="Services\IMonteCarloSimulationAppService.cs" />
+    <Compile Include="Services\IScreenshotAppService.cs" />
     <Compile Include="Services\ITradeAppService.cs" />
     <Compile Include="Services\ITradingDayAppService.cs" />
     <Compile Include="Services\ITradingAccountAppService.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Services\MonteCarloSimulationAppService.cs">
       <DependentUpon>IMonteCarloSimulationAppService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ScreenshotAppService.cs" />
     <Compile Include="Services\TradeAppService.cs">
       <DependentUpon>ITradeAppService.cs</DependentUpon>
     </Compile>

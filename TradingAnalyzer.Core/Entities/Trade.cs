@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,6 @@ namespace TradingAnalyzer.Entities
         public Decimal EntryPrice { get; set; }
         public TradingSetups EntrySetups { get; set; }
         public String EntryRemarks { get; set; }
-        public String EntryScreenshot { get; set; }
 
         //[DataType(DataType.Currency)]
         //public Decimal MFE { get; set; }
@@ -49,7 +49,6 @@ namespace TradingAnalyzer.Entities
         public Decimal ExitPrice { get; set; }
         public TradeExitReasons ExitReason { get; set; }
         public String ExitRemarks { get; set; }
-        public String ExitScreenshot { get; set; }
 
         [DataType(DataType.Currency)]
         public Decimal Commissions { get; set; }
@@ -74,11 +73,30 @@ namespace TradingAnalyzer.Entities
         public virtual TradingDay TradingDay { get; set; }
         public virtual int TradingDayId { get; set; }
 
+        [ForeignKey("EntryScreenshotDbId")]
+        [InverseProperty("EntryTrades")]
+        public virtual Screenshot EntryScreenshotDb { get; set; }
+        public virtual int? EntryScreenshotDbId { get; set; }
+
+        [ForeignKey("ExitScreenshotDbId")]
+        [InverseProperty("ExitTrades")]
+        public virtual Screenshot ExitScreenshotDb { get; set; }
+        public virtual int? ExitScreenshotDbId { get; set; }
+
         public void Reconcile()
         {
             this.Commissions = this.Size * 6.15m;
             this.ProfitLoss = this.Size * ((((this.TradeType == TradeTypes.Long ? this.ExitPrice - this.EntryPrice : this.EntryPrice - this.ExitPrice)/this.Market.TickSize) * this.Market.TickValue)) - this.Commissions;
             this.ProfitLossPerContract = this.ProfitLoss / this.Size;
+        }
+
+        public class TradeMapping : EntityTypeConfiguration<Trade>
+        {
+            public TradeMapping()
+            {
+                HasRequired(m => m.EntryScreenshotDb).WithMany(m => m.EntryTrades);
+                HasRequired(m => m.ExitScreenshotDb).WithMany(m => m.ExitTrades);
+            }
         }
     }
 }
