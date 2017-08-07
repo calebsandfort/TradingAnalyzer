@@ -1,6 +1,6 @@
 ﻿@model TradeDto
 
-<div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="tradeModal-label">
+<div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="tradeModal-label" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form id="tradeForm" class="form-horizontal">
@@ -20,12 +20,12 @@
                     @Html.EditorFor(x => x.ProfitTakerPrice)
                     @Html.EditorFor(x => x.EntryRemarks)
                     @Html.EditorFor(x => x.EntrySetups)
-                    @Html.EditorFor(x => x.EntryScreenshot, new { fieldName = "EntryScreenshot" })
+                    @Html.EditorFor(x => x.EntryScreenshotDbId, new { fieldName = "EntryScreenshotDbId" })
                     @Html.EditorFor(x => x.ExitDate, new { required = false })
                     @Html.EditorFor(x => x.ExitReason, new { required = false, onSelect = "TradingAnalyzer.Trade.exitReasonSelect" })
                     @Html.EditorFor(x => x.ExitPrice, new { required = false })
                     @Html.EditorFor(x => x.ExitRemarks, new { required = false })
-                    @Html.EditorFor(x => x.ExitScreenshot, new { required = false, fieldName = "ExitScreenshot" })
+                    @Html.EditorFor(x => x.ExitScreenshotDbId, new { required = false, fieldName = "ExitScreenshotDbId" })
                     @Html.HiddenFor(x => x.Id)
                     @Html.HiddenFor(x => x.TradingAccountId)
                     @Html.HiddenFor(x => x.TradingDayId)

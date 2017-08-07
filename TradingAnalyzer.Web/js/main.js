@@ -171,9 +171,9 @@ TradingAnalyzer.Log.showAddLogEntryModal = function () {
             TradingAnalyzer.Util.initForm("addLogEntryForm", TradingAnalyzer.Log.addLogEntry);
             TradingAnalyzer.Util.showModalForm("addLogEntryModal", false);
 
-            document.getElementById("pasteTargetScreenshot").
+            document.getElementById("pasteTargetScreenshotDbId").
                 addEventListener("paste", function (e) {
-                    TradingAnalyzer.Util.handlePaste("Screenshot", e);
+                    TradingAnalyzer.Util.handlePaste("ScreenshotDbId", e);
                 });
         },
         contentType: "application/json"
@@ -208,9 +208,20 @@ TradingAnalyzer.Util.handlePaste = function (fieldName, e) {
             var reader = new FileReader();
 
             reader.onloadend = function () {
-                $("#pasteTarget" + fieldName).hide();
-                $("#img" + fieldName).attr("src", this.result).show();
-                $("#" + fieldName).val(this.result);
+                $.ajax({
+                    type: "POST",
+                    url: abp.appPath + 'Screenshots/SaveBase64',
+                    data: JSON.stringify({
+                        base64: this.result
+                    }),
+                    success: function (r) {
+                        $("#pasteTarget" + fieldName).hide();
+                        $("#img" + fieldName).attr("src", abp.appPath + 'Screenshots/Screenshot/' + r.result.id).show();
+                        $("#" + fieldName).val(r.result.id);
+                    },
+                    contentType: "application/json"
+                });
+
             };
 
             reader.readAsDataURL(f);
@@ -259,17 +270,17 @@ TradingAnalyzer.Trade.showTradeModal = function (id) {
             TradingAnalyzer.Util.initForm("tradeForm", TradingAnalyzer.Trade.saveTrade);
             TradingAnalyzer.Util.showModalForm("tradeModal", false);
 
-            if ($("#pasteTargetEntryScreenshot").size() > 0) {
-                document.getElementById("pasteTargetEntryScreenshot").
+            if ($("#pasteTargetEntryScreenshotDbId").size() > 0) {
+                document.getElementById("pasteTargetEntryScreenshotDbId").
                     addEventListener("paste", function (e) {
-                        TradingAnalyzer.Util.handlePaste("EntryScreenshot", e);
+                        TradingAnalyzer.Util.handlePaste("EntryScreenshotDbId", e);
                     });
             }
 
-            if ($("#pasteTargetExitScreenshot").size() > 0) {
-                document.getElementById("pasteTargetExitScreenshot").
+            if ($("#pasteTargetExitScreenshotDbId").size() > 0) {
+                document.getElementById("pasteTargetExitScreenshotDbId").
                     addEventListener("paste", function (e) {
-                        TradingAnalyzer.Util.handlePaste("ExitScreenshot", e);
+                        TradingAnalyzer.Util.handlePaste("ExitScreenshotDbId", e);
                     });
             }
         },

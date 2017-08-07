@@ -50,10 +50,20 @@ namespace TradingAnalyzer.Services
             }
         }
 
-        public void SaveBase64(String base64)
+        [UnitOfWork(IsDisabled = true)]
+        public ScreenshotDto SaveBase64(String base64)
         {
-            Screenshot Screenshot = new Screenshot { Data = Convert.FromBase64String(base64.Replace("data:image/png;base64,", "")) };
-            this._repository.Insert(Screenshot);
+            Screenshot screenshot = new Screenshot { Data = Convert.FromBase64String(base64.Replace("data:image/png;base64,", "")) };
+            int id = 0;
+            using (var unitOfWork = this.UnitOfWorkManager.Begin())
+            {
+                id = this._repository.InsertAndGetId(screenshot);
+                unitOfWork.Complete();
+            }
+            ScreenshotDto dto = new ScreenshotDto();
+            screenshot.MapTo(dto);
+            dto.Id = id;
+            return dto;
         }
 
         public void ConvertAll()

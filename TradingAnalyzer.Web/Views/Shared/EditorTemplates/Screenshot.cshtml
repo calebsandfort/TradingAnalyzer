@@ -1,4 +1,4 @@
-@model String
+@model int
 
 @{
     bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
@@ -17,7 +17,7 @@
 <div class="form-group">
     @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
     <div class="col-sm-9">
-        @if (String.IsNullOrEmpty(Model))
+        @if (Model == 0)
         {
         <div style="width: 100%; height: 150px; border-color: #007fff; border-width: 2px; border-style: dashed;" id='@String.Format("pasteTarget{0}", fieldName)'>
             Click and paste here.
@@ -26,7 +26,7 @@
         }
         else
         {
-            <img id='@String.Format("img{0}", fieldName)' class="img-responsive" src="@Model" />
+            <img id='@String.Format("img{0}", fieldName)' class="img-responsive" src='@Url.Content(String.Format("~/Screenshots/Screenshot/", Model))' />
         }
 
         @(Html.HiddenFor(m => m, attributes))

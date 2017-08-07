@@ -149,7 +149,12 @@ namespace TradingAnalyzer.Entities.Dtos
 
         public int TradingDayId { get; set; }
 
+        [UIHint("Screenshot")]
+        [Display(Name = "Entry SS")]
         public virtual int EntryScreenshotDbId { get; set; }
+
+        [UIHint("Screenshot")]
+        [Display(Name = "Exit SS")]
         public virtual int ExitScreenshotDbId { get; set; }
     }
 }

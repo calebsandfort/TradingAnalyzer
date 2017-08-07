@@ -31,10 +31,9 @@ namespace TradingAnalyzer.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Test(String base64)
+        public ActionResult SaveBase64(String base64)
         {
-            this._screenshotAppService.SaveBase64(base64);
-            return Json(new { success = true });
+            return Json(this._screenshotAppService.SaveBase64(base64));
         }
 
         [OutputCache(VaryByParam = "id", Duration = 3600)]

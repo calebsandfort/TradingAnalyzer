@@ -3659,3 +3659,251 @@ DEBUG 2017-08-05 21:10:06,992 [1415 ] Abp.Web.SignalR.Hubs.AbpCommonHub        -
 DEBUG 2017-08-05 21:10:29,049 [2482 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 30bbd0fa-2b61-4d9b-b124-881ba883ad01
 DEBUG 2017-08-05 21:10:33,221 [2482 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"5750ffcf-1c1c-4fb1-8b2b-a4548680a08b","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-05T21:10:33.2217232-07:00","Properties":{}}
 DEBUG 2017-08-05 21:10:33,262 [2509 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 5750ffcf-1c1c-4fb1-8b2b-a4548680a08b
+DEBUG 2017-08-06 21:43:08,779 [544  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-06 21:43:08,781 [544  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:43:08,782 [544  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:43:08,782 [544  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-06 21:43:13,519 [22   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-06 21:43:13,535 [22   ] Abp.Modules.AbpModuleManager             - Found 14 ABP modules in total.
+DEBUG 2017-08-06 21:43:13,542 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,544 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,544 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,545 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,545 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,545 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,545 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,545 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,546 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,546 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Shared.TradingAnalyzerSharedModule, TradingAnalyzer.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,546 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,546 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,546 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,546 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:13,550 [22   ] Abp.Modules.AbpModuleManager             - 14 modules loaded.
+DEBUG 2017-08-06 21:43:13,779 [22   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:43:14,367 [22   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-08-06 21:43:14,373 [22   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-06 21:43:14,374 [22   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-06 21:43:14,394 [22   ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-08-06 21:43:14,532 [22   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:43:14,575 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-08-06 21:43:14,575 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.TradingDayDto
+DEBUG 2017-08-06 21:43:14,579 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.MarketDto
+DEBUG 2017-08-06 21:43:14,579 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-06 21:43:14,579 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-06 21:43:14,808 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-06 21:43:14,809 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-06 21:43:14,809 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-06 21:43:14,810 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-06 21:43:14,811 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-06 21:43:14,811 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-06 21:43:14,812 [22   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-06 21:43:15,277 [546  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"5750ffcf-1c1c-4fb1-8b2b-a4548680a08b","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:43:15.2117853-07:00","Properties":{}}
+DEBUG 2017-08-06 21:43:26,020 [563  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 5750ffcf-1c1c-4fb1-8b2b-a4548680a08b
+WARN  2017-08-06 21:43:26,340 [595  ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-08-06 21:43:26,373 [595  ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2017-08-06 21:43:46,028 [542  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"49016124-c48d-4dac-a2ed-245a26d9aab9","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:43:46.0286834-07:00","Properties":{}}
+DEBUG 2017-08-06 21:43:46,058 [538  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 49016124-c48d-4dac-a2ed-245a26d9aab9
+DEBUG 2017-08-06 21:43:49,686 [539  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 49016124-c48d-4dac-a2ed-245a26d9aab9
+DEBUG 2017-08-06 21:44:22,960 [546  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"fce08d83-21cb-400e-a53c-27604ed5ee4e","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:44:22.960858-07:00","Properties":{}}
+DEBUG 2017-08-06 21:44:22,970 [533  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: fce08d83-21cb-400e-a53c-27604ed5ee4e
+DEBUG 2017-08-06 21:45:11,735 [538  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: fce08d83-21cb-400e-a53c-27604ed5ee4e
+DEBUG 2017-08-06 21:45:21,579 [559  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4a0a28fe-315d-4de2-ae7f-20583d8e2b2f","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:45:21.5794053-07:00","Properties":{}}
+DEBUG 2017-08-06 21:45:21,586 [542  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4a0a28fe-315d-4de2-ae7f-20583d8e2b2f
+DEBUG 2017-08-06 21:48:13,896 [1272 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is reconnected: {"ConnectionId":"4a0a28fe-315d-4de2-ae7f-20583d8e2b2f","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:45:21.5794053-07:00","Properties":{}}
+DEBUG 2017-08-06 21:48:44,999 [552  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-06 21:48:45,000 [552  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:48:45,001 [552  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:48:45,001 [552  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-06 21:48:49,438 [23   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-06 21:48:49,455 [23   ] Abp.Modules.AbpModuleManager             - Found 14 ABP modules in total.
+DEBUG 2017-08-06 21:48:49,462 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,465 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,465 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,466 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,466 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,466 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,466 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Shared.TradingAnalyzerSharedModule, TradingAnalyzer.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,467 [23   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:49,471 [23   ] Abp.Modules.AbpModuleManager             - 14 modules loaded.
+DEBUG 2017-08-06 21:48:49,655 [23   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:48:50,094 [23   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-08-06 21:48:50,104 [23   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-06 21:48:50,105 [23   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-06 21:48:50,107 [23   ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-08-06 21:48:50,276 [23   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:48:50,344 [23   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-08-06 21:48:50,344 [23   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.TradingDayDto
+DEBUG 2017-08-06 21:48:50,350 [23   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.MarketDto
+DEBUG 2017-08-06 21:48:50,350 [23   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-06 21:48:50,350 [23   ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-06 21:48:50,607 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-06 21:48:50,608 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-06 21:48:50,608 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-06 21:48:50,609 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-06 21:48:50,610 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-06 21:48:50,611 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-06 21:48:50,611 [23   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-06 21:48:51,145 [1279 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"4a0a28fe-315d-4de2-ae7f-20583d8e2b2f","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:48:51.0796369-07:00","Properties":{}}
+DEBUG 2017-08-06 21:48:59,808 [1273 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4a0a28fe-315d-4de2-ae7f-20583d8e2b2f
+WARN  2017-08-06 21:49:00,011 [1272 ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-08-06 21:49:00,030 [1272 ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2017-08-06 21:49:31,582 [1273 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"ed3195e8-7511-439c-b5c5-1d01f5080bf3","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:49:31.582519-07:00","Properties":{}}
+DEBUG 2017-08-06 21:49:31,614 [1275 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: ed3195e8-7511-439c-b5c5-1d01f5080bf3
+DEBUG 2017-08-06 21:51:43,362 [542  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-06 21:51:43,364 [542  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:51:43,364 [542  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:51:43,364 [542  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-06 21:51:48,031 [637  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-06 21:51:48,047 [637  ] Abp.Modules.AbpModuleManager             - Found 14 ABP modules in total.
+DEBUG 2017-08-06 21:51:48,053 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,055 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,055 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,056 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,056 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,056 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,056 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,056 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,057 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,057 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Shared.TradingAnalyzerSharedModule, TradingAnalyzer.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,057 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,057 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,057 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,057 [637  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,060 [637  ] Abp.Modules.AbpModuleManager             - 14 modules loaded.
+DEBUG 2017-08-06 21:51:48,259 [637  ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:51:48,813 [637  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-08-06 21:51:48,819 [637  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-06 21:51:48,820 [637  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-06 21:51:48,822 [637  ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-08-06 21:51:48,955 [637  ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:51:49,008 [637  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-08-06 21:51:49,008 [637  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.TradingDayDto
+DEBUG 2017-08-06 21:51:49,011 [637  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.MarketDto
+DEBUG 2017-08-06 21:51:49,011 [637  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-06 21:51:49,011 [637  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-06 21:51:49,252 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-06 21:51:49,253 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-06 21:51:49,253 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-06 21:51:49,254 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-06 21:51:49,255 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-06 21:51:49,255 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-06 21:51:49,256 [637  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-06 21:51:49,699 [1273 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"ed3195e8-7511-439c-b5c5-1d01f5080bf3","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:51:49.6498802-07:00","Properties":{}}
+DEBUG 2017-08-06 21:52:01,620 [1276 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: ed3195e8-7511-439c-b5c5-1d01f5080bf3
+WARN  2017-08-06 21:52:02,249 [1276 ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-08-06 21:52:02,280 [1276 ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2017-08-06 21:52:24,585 [544  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"f6f890a1-a1f1-4a62-b885-0c7ef1529910","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:52:24.5851438-07:00","Properties":{}}
+DEBUG 2017-08-06 21:52:24,616 [533  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: f6f890a1-a1f1-4a62-b885-0c7ef1529910
+DEBUG 2017-08-06 21:53:53,287 [533  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is reconnected: {"ConnectionId":"f6f890a1-a1f1-4a62-b885-0c7ef1529910","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:52:24.5851438-07:00","Properties":{}}
+DEBUG 2017-08-06 21:54:40,089 [1277 ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-06 21:54:40,091 [1277 ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:54:40,092 [1277 ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:54:40,092 [1277 ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-06 21:54:44,662 [534  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-06 21:54:44,677 [534  ] Abp.Modules.AbpModuleManager             - Found 14 ABP modules in total.
+DEBUG 2017-08-06 21:54:44,683 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,686 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,686 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,686 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,686 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,686 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,687 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,687 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,687 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,687 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Shared.TradingAnalyzerSharedModule, TradingAnalyzer.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,687 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,688 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,688 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,688 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:44,691 [534  ] Abp.Modules.AbpModuleManager             - 14 modules loaded.
+DEBUG 2017-08-06 21:54:44,880 [534  ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 21:54:45,318 [534  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-08-06 21:54:45,324 [534  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-06 21:54:45,324 [534  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-06 21:54:45,325 [534  ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-08-06 21:54:45,471 [534  ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 21:54:45,518 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-08-06 21:54:45,518 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.TradingDayDto
+DEBUG 2017-08-06 21:54:45,521 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.MarketDto
+DEBUG 2017-08-06 21:54:45,521 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-06 21:54:45,521 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-06 21:54:45,749 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-06 21:54:45,750 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-06 21:54:45,750 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-06 21:54:45,751 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-06 21:54:45,751 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-06 21:54:45,752 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-06 21:54:45,753 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-06 21:54:46,168 [533  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"f6f890a1-a1f1-4a62-b885-0c7ef1529910","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:54:46.1190825-07:00","Properties":{}}
+DEBUG 2017-08-06 21:54:55,763 [1274 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: f6f890a1-a1f1-4a62-b885-0c7ef1529910
+WARN  2017-08-06 21:54:55,987 [1275 ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-08-06 21:54:56,001 [1275 ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2017-08-06 21:55:16,580 [542  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4dde3b94-fb19-444d-8b6e-1f4cf29a8d2b","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:55:16.5805967-07:00","Properties":{}}
+DEBUG 2017-08-06 21:55:16,612 [1274 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4dde3b94-fb19-444d-8b6e-1f4cf29a8d2b
+DEBUG 2017-08-06 21:56:07,344 [1274 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4dde3b94-fb19-444d-8b6e-1f4cf29a8d2b
+DEBUG 2017-08-06 21:56:16,881 [547  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"c295864c-9525-4374-b7f0-e036cb9da41e","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:56:16.8812037-07:00","Properties":{}}
+DEBUG 2017-08-06 21:56:16,889 [1282 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: c295864c-9525-4374-b7f0-e036cb9da41e
+DEBUG 2017-08-06 21:57:25,979 [538  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: c295864c-9525-4374-b7f0-e036cb9da41e
+DEBUG 2017-08-06 21:57:40,102 [555  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"9f5cbb9e-531d-4a65-a089-34925e0d1e3e","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:57:40.1024926-07:00","Properties":{}}
+DEBUG 2017-08-06 21:57:40,108 [544  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 9f5cbb9e-531d-4a65-a089-34925e0d1e3e
+DEBUG 2017-08-06 21:58:22,072 [536  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 9f5cbb9e-531d-4a65-a089-34925e0d1e3e
+DEBUG 2017-08-06 21:58:32,706 [555  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"5eac9464-1db7-4c72-b2ca-d38f0d92e51c","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T21:58:32.7065277-07:00","Properties":{}}
+DEBUG 2017-08-06 21:58:32,716 [570  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 5eac9464-1db7-4c72-b2ca-d38f0d92e51c
+DEBUG 2017-08-06 22:00:43,643 [1271 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 5eac9464-1db7-4c72-b2ca-d38f0d92e51c
+DEBUG 2017-08-06 22:00:54,672 [1277 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"67677f22-338d-4933-8d06-b71e0ffb6ee1","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T22:00:54.6726697-07:00","Properties":{}}
+DEBUG 2017-08-06 22:00:54,678 [1277 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 67677f22-338d-4933-8d06-b71e0ffb6ee1
+DEBUG 2017-08-06 22:02:45,451 [1271 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 67677f22-338d-4933-8d06-b71e0ffb6ee1
+DEBUG 2017-08-06 22:02:56,187 [1283 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"6b74ee4c-4286-4efc-873a-d1bc2161b07a","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T22:02:56.1877223-07:00","Properties":{}}
+DEBUG 2017-08-06 22:02:56,201 [540  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 6b74ee4c-4286-4efc-873a-d1bc2161b07a
+DEBUG 2017-08-06 22:04:41,687 [1282 ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-06 22:04:41,688 [1282 ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 22:04:41,689 [1282 ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 22:04:41,689 [1282 ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-06 22:04:46,110 [534  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-06 22:04:46,126 [534  ] Abp.Modules.AbpModuleManager             - Found 14 ABP modules in total.
+DEBUG 2017-08-06 22:04:46,131 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Web.TradingAnalyzerWebModule, TradingAnalyzer.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,133 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,133 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,134 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,134 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,134 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerDataModule, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,134 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,134 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerCoreModule, TradingAnalyzer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,135 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,135 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.Shared.TradingAnalyzerSharedModule, TradingAnalyzer.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,135 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerApplicationModule, TradingAnalyzer.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,135 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: TradingAnalyzer.TradingAnalyzerWebApiModule, TradingAnalyzer.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,135 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,135 [534  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,138 [534  ] Abp.Modules.AbpModuleManager             - 14 modules loaded.
+DEBUG 2017-08-06 22:04:46,343 [534  ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: TradingAnalyzer.EntityFramework.TradingAnalyzerDbContext, TradingAnalyzer.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-06 22:04:46,907 [534  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-08-06 22:04:46,914 [534  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-06 22:04:46,914 [534  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-06 22:04:46,916 [534  ] Abp.Localization.LocalizationManager     - Initialized localization source: TradingAnalyzer
+DEBUG 2017-08-06 22:04:47,058 [534  ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-06 22:04:47,102 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-08-06 22:04:47,102 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.TradingDayDto
+DEBUG 2017-08-06 22:04:47,105 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.MarketDto
+DEBUG 2017-08-06 22:04:47,105 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-06 22:04:47,105 [534  ] Abp.AutoMapper.AbpAutoMapperModule       - TradingAnalyzer.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-06 22:04:47,331 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-06 22:04:47,332 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-06 22:04:47,332 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-06 22:04:47,333 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-06 22:04:47,334 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-06 22:04:47,334 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-06 22:04:47,335 [534  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'TradingAnalyzer.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-06 22:04:47,772 [539  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"6b74ee4c-4286-4efc-873a-d1bc2161b07a","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T22:04:47.7216687-07:00","Properties":{}}
+DEBUG 2017-08-06 22:04:57,931 [1281 ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 6b74ee4c-4286-4efc-873a-d1bc2161b07a
+WARN  2017-08-06 22:04:58,152 [545  ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-08-06 22:04:58,196 [545  ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2017-08-06 22:05:23,328 [557  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"d0a4ab36-8ea8-4142-8a1f-a387d04475f9","IpAddress":"::1","TenantId":1,"UserId":null,"ConnectTime":"2017-08-06T22:05:23.3285503-07:00","Properties":{}}
+DEBUG 2017-08-06 22:05:23,365 [541  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: d0a4ab36-8ea8-4142-8a1f-a387d04475f9

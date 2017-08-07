@@ -13,7 +13,7 @@ namespace TradingAnalyzer.Services
     {
         ScreenshotDto Get(int id);
         void Save(ScreenshotDto dto);
-        void SaveBase64(String base64);
+        ScreenshotDto SaveBase64(String base64);
         void ConvertAll();
     }
 }
